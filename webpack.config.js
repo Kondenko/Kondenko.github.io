@@ -1,6 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
 
+var resLoader = {
+  loader: 'sass-resources-loader',
+  options: {
+    resources: "src/res/stylesheet.scss"
+  }
+}
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -14,15 +21,48 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
         ],
-      },      {
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader',
+          resLoader
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader?indentedSyntax',
+          resLoader
+        ],
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
+            'scss': [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader',
+              resLoader
+            ],
+            'sass': [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader?indentedSyntax',
+              resLoader
+            ]
+          },
+          transformToRequire: {
+            image: 'xlink:href'
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -34,13 +74,36 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: 'name=img/[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.(pdf)$/,
+        loader: "file-loader"
+      }
+    ],
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue'
+      },
+      {
+        test: /\.s[a|c]ss$/,
+        loader: 'style!css!sass'
       }
     ]
   },
   resolve: {
     alias: {
+      assets: path.resolve(__dirname, 'src/assets'),
+      ic: path.resolve(__dirname, 'src/assets/icons'),
+      ui: path.resolve(__dirname, 'src/components/ui/'),
+      mixins: path.resolve(__dirname, 'src/mixins/'),
+      res: path.resolve(__dirname, 'src/res/'),
       'vue$': 'vue/dist/vue.esm.js'
     },
     extensions: ['*', '.js', '.vue', '.json']
