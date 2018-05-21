@@ -7,7 +7,7 @@
       I studied at Yandex Mobile Development School and started my career as a freelance Android developer after graduation. <br>
       I also have a Telegram <a :href="channelLink" target="_blank">channel</a> about design and development.
     </p>
-    <text-button id="resume-button" text="Download resume"></text-button>
+    <text-button id="resume-button" text="Download resume" v-on:click.native="downloadResume"></text-button>
     <div id="social-buttons">
       <icon-button v-for="{icon, link} of socialButtons" :key="link" :ic="icon" :url="link" :openInNewTab="false"></icon-button>
     </div>
@@ -23,6 +23,11 @@ export default {
   components: {
     TextButton,
     IconButton
+  },
+   methods: {
+    downloadResume: function(event) {
+      window.location.href=require('assets/cv.pdf');
+    }
   },
   data() {
     return {
@@ -43,7 +48,7 @@ export default {
           link: "https://www.github.com/Kondenko"
         },
       ]
-    };
+    }
   }
 };
 </script>
