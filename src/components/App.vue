@@ -15,7 +15,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
+#app {
+  min-height: 100vh;
+}
+
 h1 {
   font-family: $font-hind-mysuru;
   font-style: normal;
@@ -23,15 +27,26 @@ h1 {
   line-height: normal;
   font-size: 48px;
   color: $accentColor;
+  margin: 0;
 }
 
 p {
   font-family: $font-hind-madurai;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 50px;
+  font-size: 20px;
+  line-height: 40px;
   text-align: start;
+}
+
+a {
+  @extend p;
+  font-family: $font-hind-madurai;
+  text-decoration: underline;
+  text-decoration-style: unset;
+  text-decoration-line: underline;
+  text-transform: lowercase;
+  color: $accentColor;
 }
 
 #avatar {

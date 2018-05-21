@@ -59,6 +59,9 @@ module.exports = {
               'sass-loader?indentedSyntax',
               resLoader
             ]
+          },
+          transformToRequire: {
+            image: 'xlink:href'
           }
         }
       },
@@ -93,6 +96,7 @@ module.exports = {
   resolve: {
     alias: {
       assets: path.resolve(__dirname, 'src/assets'),
+      ic: path.resolve(__dirname, 'src/assets/icons'),
       ui: path.resolve(__dirname, 'src/components/ui/'),
       mixins: path.resolve(__dirname, 'src/mixins/'),
       res: path.resolve(__dirname, 'src/res/'),
