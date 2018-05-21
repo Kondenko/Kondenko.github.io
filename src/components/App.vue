@@ -1,35 +1,23 @@
 <template>
   <div id="app">
-    <!-- TODO Move to a separate component -->
-    <img id="avatar" v-bind:src="avatar">
-    <h1>{{ hello }}</h1>
+    <introduction></introduction>
   </div>
 </template>
 
 <script>
+import Introduction from "./Introduction.vue";
+
 export default {
   name: "app",
-  data() {
-    return {
-      hello: "Hi. I'm Vladimir Kondenko.",
-      avatar: require("../assets/img_avatar.png")
-    };
+  components: {
+    Introduction
   }
 };
 </script>
 
 <style lang="scss">
-
-@import url("https://fonts.googleapis.com/css?family=Hind+Madurai");
-
-$accentColor: #ff4848;
-$textPrimaryColor: #0d0d0d;
-$textSecondaryColor: #404040;
-
-$font-family: "Hind Madurai", sans-serif;
-
 h1 {
-  font-family: $font-family;
+  font-family: $font-hind-mysuru;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -37,9 +25,17 @@ h1 {
   color: $accentColor;
 }
 
+p {
+  font-family: $font-hind-madurai;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: start;
+}
+
 #avatar {
   width: 150px;
   height: 150px;
 }
-
 </style>
