@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var resLoader = {
   loader: 'sass-resources-loader',
@@ -8,11 +9,13 @@ var resLoader = {
   }
 }
 
+var url = "kondenko.github.io"
+
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '',
     filename: 'build.js'
   },
   module: {
@@ -123,6 +126,12 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: "Vladimir Kondenko - Designer + Developer",
+      template: './src/index.html',
+      filename: './index.html' //relative to root of the application
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
