@@ -5,12 +5,14 @@
   "author": "Vladimir <kondenko2011@gmail.com>",
   "license": "MIT",
   "private": true,
+  "homepage": "https://kondenko.github.io",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "npm run build; push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "npm run build; push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
   },
   "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
     "vue": "^2.5.11"
   },
   "browserslist": [

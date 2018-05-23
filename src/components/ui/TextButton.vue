@@ -5,25 +5,15 @@
 </template>
 
 <script>
+import _Button from "ui/abstract/_Button.vue"
+
 export default {
+  extends: _Button,
   name: "text-button",
-  props: ["text"]
+  props: ["color", "text"]
 };
 </script>
 
 <style lang="scss" scoped>
-button {
-  font-size: 14px;
-  text-align: center;
-  font-family: $font-hind-madurai;
-  font-weight: 700;
-  line-height: normal;
-  color: $textPrimaryColorLight;
-  background-color: $accentColor;
-  border-radius: 10px;
-  min-width: 150px;
-  min-height: 40px;
-  border: none;
-  outline: none;
-}
+
 </style>

@@ -1,5 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+var isProd = process.env.NODE_ENV === 'production'
+
+var title = "Vladimir Kondenko // Designer + Developer"
+var htmlTemplate = "./src/index.html"
 
 var resLoader = {
   loader: 'sass-resources-loader',
@@ -12,7 +18,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '',
     filename: 'build.js'
   },
   module: {
@@ -116,13 +122,26 @@ module.exports = {
   performance: {
     hints: false
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: title,
+      template: htmlTemplate,
+      filename: './index.html' //relative to root of the application
+    }),
+  ],
   devtool: '#eval-source-map'
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: title,
+      template: htmlTemplate,
+      filename: './dist/index.html' //relative to root of the application
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
