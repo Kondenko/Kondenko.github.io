@@ -18,13 +18,17 @@ export default {
 <style lang="scss" >
 #app {
   min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0px 16px;
 }
 
 h1 {
   font-family: $font-hind-mysuru;
   font-style: normal;
   font-weight: bold;
-  line-height: normal;
+  line-height: 125%;
   font-size: 48px;
   color: $accentColor;
   margin: 0;
