@@ -40,7 +40,7 @@ export default {
       socialButtons: [
           {
           icon: require("ic/ic_mail.svg"),
-          link: "hmailto:kondenko2011@gmail.com"
+          link: "mailto:kondenko2011@gmail.com"
         },
         {
           icon: require("ic/ic_facebook.svg"),
