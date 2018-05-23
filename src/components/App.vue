@@ -51,6 +51,9 @@ a {
   text-decoration-line: underline;
   text-transform: lowercase;
   color: $accentColor;
+  &:hover {
+    opacity: $hoverOpacity;
+  }
 }
 
 #avatar {

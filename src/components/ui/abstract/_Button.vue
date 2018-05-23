@@ -25,6 +25,9 @@ button {
   padding: 5px 15px;
   border: none;
   outline: none;
+  &:hover {
+    opacity: $hoverOpacity;
+  }
 }
 
 </style>

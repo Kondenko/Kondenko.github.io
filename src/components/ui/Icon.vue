@@ -16,5 +16,8 @@ $iconSize: 28px;
 #icon-button {
   width: $iconSize;
   height: $iconSize;
+  &:hover {
+    opacity: $hoverOpacity;
+  }
 }
 </style>
