@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Introduction from "./Introduction.vue";
+import Introduction from "./introduction/Introduction.vue";
 
 export default {
   name: "app",
