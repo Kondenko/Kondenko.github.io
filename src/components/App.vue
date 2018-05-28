@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <introduction></introduction>
-    <projects></projects>
+    <projects id="projects"></projects>
   </div>
 </template>
 
@@ -20,13 +20,15 @@ export default {
 
 <style lang="scss">
 #app {
-  min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
   align-content: flex-start;
-  padding: 0px 16px;
+  & > div {
+    padding: 50px 16px;
+  }
 }
 
 h1 {

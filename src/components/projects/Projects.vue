@@ -28,7 +28,6 @@ export default {
 @import "~res/tabs-theme";
 
 #projects {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-content: center;

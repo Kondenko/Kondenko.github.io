@@ -1,6 +1,7 @@
 <template>
   <div id="introduction">
     <img id="avatar" v-bind:src="avatar">
+    <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
     <p class="body" id="bio">
       I prototype, design and create awesome mobile apps. <br> 
@@ -12,6 +13,7 @@
       <div id="social-buttons">
         <icon class="social-icon" v-for="{icon, link} of socialButtons" :key="link" :ic="icon" :url="link" :openInNewTab="true"></icon>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -70,13 +72,14 @@ h1 {
 }
 
 #introduction {
-  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   align-content: stretch;
   justify-content: flex-start;
-  max-width: 620px;
+  max-width: 85%;
   margin: 0 auto;
 }
 
@@ -86,11 +89,13 @@ $avatarSize: 125px;
   flex-shrink: 1;
   height: $avatarSize;
   width: $avatarSize;
-  margin: 50px 0px;
+  margin: 0px 0px 50px 0px;
+}
+
+#text {
 }
 
 #greeting {
-  align-self: flex-start;
 }
 
 #bio {
@@ -99,11 +104,17 @@ $avatarSize: 125px;
 }
 
 #buttons {
-  flex-grow: 1;
+  max-width: 100%;
+  align-self: center;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+#resume-button {
+  margin: 0 2% 0 0;
 }
 
 #social-buttons {
@@ -115,8 +126,8 @@ $avatarSize: 125px;
   min-height: 38px;
   background-color: $backgroundColor;
   border-radius: 10px;
-  padding: 0px 15px;
-  margin: 0px 20px;
+  margin: 6% 0;
+  padding: 0px 2%;
   opacity: 0.6;
 }
 
