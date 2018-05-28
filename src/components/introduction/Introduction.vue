@@ -2,10 +2,10 @@
   <div id="introduction">
     <img id="avatar" v-bind:src="avatar">
     <h1 id="greeting">{{ greeting }}</h1>
-    <p id="bio">
+    <p class="body" id="bio">
       I prototype, design and create awesome mobile apps. <br> 
       I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
-      I also have a Telegram <a :href="channelLink" target="_blank">channel</a> about design and development.
+      I also have a Telegram <a class="link" :href="channelLink" target="_blank">channel</a> about design and development.
     </p>
     <div id="buttons">
       <icon-button id="resume-button" :icon="icDownload" text="Resume" v-on:click.native="downloadResume"></icon-button>
@@ -38,7 +38,7 @@ export default {
       avatar: require("assets/img_avatar.png"),
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
-          {
+        {
           icon: require("ic/ic_mail.svg"),
           link: "mailto:kondenko2011@gmail.com"
         },
@@ -46,7 +46,7 @@ export default {
           icon: require("ic/ic_facebook.svg"),
           link: "https://www.facebook.com/v.kondenko"
         },
-          {
+        {
           icon: require("ic/ic_twitter.svg"),
           link: "https://twitter.com/v_kondenko"
         },
@@ -64,9 +64,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+h1 {
+  color: $accentColor;
+}
+
 #introduction {
-  max-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;

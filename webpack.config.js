@@ -110,9 +110,10 @@ module.exports = {
       ui: path.resolve(__dirname, 'src/components/ui/'),
       mixins: path.resolve(__dirname, 'src/mixins/'),
       res: path.resolve(__dirname, 'src/res/'),
+      vtabs: path.resolve(__dirname, 'node-modules/vue-nav-tabs'),
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js', '.vue', '.json', ".scss"]
   },
   devServer: {
     historyApiFallback: true,

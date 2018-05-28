@@ -1,26 +1,31 @@
 <template>
   <div id="app">
     <introduction></introduction>
+    <projects></projects>
   </div>
 </template>
 
 <script>
 import Introduction from "./introduction/Introduction.vue";
+import Projects from "./projects/Projects.vue";
 
 export default {
   name: "app",
   components: {
-    Introduction
+    Introduction,
+    Projects
   }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 #app {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: center;
+  align-content: flex-start;
   padding: 0px 16px;
 }
 
@@ -30,11 +35,10 @@ h1 {
   font-weight: bold;
   line-height: 125%;
   font-size: 48px;
-  color: $accentColor;
   margin: 0;
 }
 
-p {
+.body {
   font-family: $font-hind-madurai;
   font-style: normal;
   font-weight: normal;
@@ -43,8 +47,8 @@ p {
   text-align: start;
 }
 
-a {
-  @extend p;
+.link {
+  @extend .body;
   font-family: $font-hind-madurai;
   text-decoration: underline;
   text-decoration-style: unset;
