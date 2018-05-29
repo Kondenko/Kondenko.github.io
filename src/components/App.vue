@@ -26,6 +26,7 @@ export default {
   align-items: stretch;
   justify-content: center;
   align-content: flex-start;
+  background-color: $mainBackgroundColor;
   & > div {
     padding: 50px 16px;
   }
@@ -37,6 +38,24 @@ h1 {
   font-weight: bold;
   line-height: 125%;
   font-size: 48px;
+  margin: 0;
+}
+
+h2 {
+   font-family: $font-hind-madurai;
+  font-style: bold;
+  font-weight: 700;
+  line-height: 50px;
+  font-size: 36px;
+  margin: 0;
+}
+
+h3 {
+  font-family: $font-hind-madurai;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 50px;
+  font-size: 14px;
   margin: 0;
 }
 

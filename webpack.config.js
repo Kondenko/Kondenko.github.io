@@ -130,7 +130,7 @@ module.exports = {
       filename: './index.html' //relative to root of the application
     }),
   ],
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
 }
 
 if (isProd) {

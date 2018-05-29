@@ -1,6 +1,6 @@
 <template>
-    <button id="icon-button">
-        <img :src="icon">
+    <button class="button" id="icon-button">
+        <img class="button-icon" :src="icon">
         {{ text }}
     </button>
 </template>
@@ -11,12 +11,20 @@ import _Button from "ui/abstract/_Button.vue";
 export default {
   extends: _Button,
   name: "icon-button",
-  props: ["color", "icon", "text"]
+  props: {
+    icon: String,
+    text: String,
+    small: {
+      default: false,
+      type: Boolean
+    }
+  }
+
 };
 </script>
 
 <style lang="scss" scoped>
-button {
+.button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,9 +32,19 @@ button {
 }
 
 $iconSize: 20px;
-img {
+.button-icon {
+  align-self: flex-start;
   width: $iconSize;
   height: $iconSize;
   margin-right: 10px;
 }
+
+$iconSize: 16px;
+.small-button-icon {
+  @extend .button-icon;
+  width: $iconSize;
+  height: $iconSize;
+  margin-right: 5px;
+}
+
 </style>
