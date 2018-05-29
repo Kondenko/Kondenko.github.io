@@ -5,7 +5,9 @@
             <p class="body">{{ desc }} </p>
             <h3>Technologies</h3>
             <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
-            <icon-button small=true :icon="icGithub" text="Source code"></icon-button>
+            <a style="text-decoration: none;" :href="githubLink" target="_blank">
+            <icon-button :icon="icGithub" text="Source code"></icon-button>
+        </a>
         </div>
         <div>
             <img v-for="s in screenshots" :key="s" :src="s"/>
@@ -31,9 +33,14 @@ export default {
     IconButton
   },
   data: function() {
-      return {
-          icGithub: require('assets/icons/ic_github_light.svg')
-      }
+    return {
+      icGithub: require("assets/icons/ic_github_light.svg")
+    };
+  },
+  methods: {
+    goToGithub: function(event) {
+      window.location.href = githubLink;
+    }
   }
 };
 </script>
