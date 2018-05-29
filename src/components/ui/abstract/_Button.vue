@@ -16,7 +16,7 @@ export default {
 $contentColor: $accentColor;
 .button {
   min-height: 38px;
-  min-width: 125px;
+  min-width: 120px;
   font-size: 14px;
   text-align: center;
   font-family: $font-hind-madurai;
@@ -28,8 +28,11 @@ $contentColor: $accentColor;
   padding: 5px 25px 5px 10px;
   border: none;
   outline: none;
+  opacity: 0.9;
+  box-shadow: 0px 4px 10px rgba($color: $accentColor, $alpha: 0.5);
+  transition: 200ms box-shadow ease-out;
   &:hover {
-    opacity: $hoverOpacity;
+    box-shadow: 0px 6px 14px rgba($color: $accentColor, $alpha: 0.7);
   }
 }
 

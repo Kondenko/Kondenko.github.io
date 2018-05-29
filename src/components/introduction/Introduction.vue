@@ -125,7 +125,7 @@ $avatarSize: 125px;
   width: auto;
   min-height: 38px;
   background-color: $backgroundColor;
-  border-radius: 10px;
+  border-radius: 90px;
   margin: 6% 0;
   padding: 0px 2%;
   opacity: 0.6;
