@@ -21,13 +21,13 @@ export default {
   text-align: center;
   line-height: normal;
   padding: 5px 15px;
-  margin: 10px;
+  margin: 2%;
   border: none;
   outline: none;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   transition: 100ms box-shadow ease-in;
   &:hover {
-      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

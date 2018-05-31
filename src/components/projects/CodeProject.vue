@@ -1,16 +1,18 @@
 <template>
     <div id="CodeProject">
-        <div>
+        <div class="desc-block">
             <h2>{{ name }}</h2>
-            <p class="body">{{ desc }} </p>
-            <h3>Technologies</h3>
+            <p class="desc-text body">{{ desc }} </p>
+            <h3 class="tech-title" >Technologies</h3>
+            <div class="tech-chips">
             <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
-            <a style="text-decoration: none;" :href="githubLink" target="_blank">
-            <icon-button :icon="icGithub" text="Source code"></icon-button>
-        </a>
+            </div>
+            <a class="button-link" :href="githubLink" target="_blank">
+              <icon-button id="button-github" :icon="icGithub" text="Source code"></icon-button>
+            </a>
         </div>
-        <div>
-            <img v-for="s in screenshots" :key="s" :src="s"/>
+        <div class="screenshots-block">
+            <img class="screenshot" v-for="s in screenshots" :key="s" :src="s"/>
         </div>
     </div>
 </template>
@@ -45,7 +47,69 @@ export default {
 };
 </script>
 
-<style>
-CodeProject {
+<style lang="scss">
+#CodeProject {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 auto;
+  height: 70vh;
+  width: 90vw;
+  @include tablet-portrait-and-below {
+    flex-wrap: wrap;
+  }
+}
+
+.desc-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 5%;
+  flex-shrink: 1;
+}
+
+.desc-text {
+  max-width: 500px;
+  line-height: 35px;
+}
+
+.tech-title {
+  height: 44px;
+}
+
+.tech-chips {
+  margin-bottom: auto;
+  margin-left: -2%;
+}
+
+.button-link {
+  text-decoration: none;
+}
+
+#button-github {
+  margin-top: 10%;
+}
+
+.screenshots-block {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+  @include tablet-portrait-and-below {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.screenshot {
+  margin: 0 2%;
+  width: 36%;
+  height: auto;
+   @include tablet-portrait-and-below {
+    width: 100%;
+    margin: 10%;
+  }
 }
 </style>

@@ -66,4 +66,12 @@ export default {
 h1 {
   align-self: flex-start;
 }
+
+.tabs {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>

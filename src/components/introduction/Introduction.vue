@@ -114,7 +114,7 @@ $avatarSize: 125px;
 }
 
 #resume-button {
-  margin: 0 2% 0 0;
+  margin: 0 4% 0 0;
 }
 
 #social-buttons {
