@@ -26,9 +26,11 @@ export default {
   align-items: stretch;
   justify-content: center;
   align-content: flex-start;
-  background-color: $mainBackgroundColor;
   & > div {
-    padding: 50px 16px;
+    padding: 25px 16px 25px;
+    @include desktop-and-up {
+    padding: 25px 50px 25px;
+    }
   }
 }
 
@@ -42,7 +44,7 @@ h1 {
 }
 
 h2 {
-   font-family: $font-hind-madurai;
+  font-family: $font-hind-madurai;
   font-style: bold;
   font-weight: 700;
   line-height: 50px;

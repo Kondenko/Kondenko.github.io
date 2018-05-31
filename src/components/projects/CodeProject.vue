@@ -54,18 +54,19 @@ export default {
   margin: 0 auto;
   height: 70vh;
   width: 90vw;
+  padding: 10px;
   @include tablet-portrait-and-below {
     flex-wrap: wrap;
   }
 }
 
 .desc-block {
+  min-width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   margin: 0 5%;
-  flex-shrink: 1;
 }
 
 .desc-text {
@@ -91,7 +92,7 @@ export default {
 }
 
 .screenshots-block {
-  flex-grow: 2;
+  min-width: 50%;
   display: flex;
   flex-direction: row;
   align-content: flex-end;

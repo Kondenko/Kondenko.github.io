@@ -72,7 +72,9 @@ h1 {
 }
 
 #introduction {
-  min-height: 100vh;
+  @include desktop-and-up {
+    min-height: 100vh;
+  }
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -81,6 +83,7 @@ h1 {
   justify-content: flex-start;
   max-width: 85%;
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 $avatarSize: 125px;
@@ -90,12 +93,6 @@ $avatarSize: 125px;
   height: $avatarSize;
   width: $avatarSize;
   margin: 0px 0px 50px 0px;
-}
-
-#text {
-}
-
-#greeting {
 }
 
 #bio {
