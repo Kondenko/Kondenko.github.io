@@ -5,21 +5,22 @@
             <p class="desc-text body">{{ desc }} </p>
             <h3 class="tech-title" >Technologies</h3>
             <div class="tech-chips">
-            <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
+              <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
             </div>
             <a class="button-link" :href="githubLink" target="_blank">
               <icon-button id="button-github" :icon="icGithub" text="Source code"></icon-button>
             </a>
         </div>
-        <div class="screenshots-block">
-            <img class="screenshot" v-for="s in screenshots" :key="s" :src="s"/>
-        </div>
+        <flickity class="screenshots-block flickity" ref="flickity" v-if="Object.keys(screenshots).length > 0" :options="flickityOptions">
+            <img class="screenshot" v-if="Object.keys(screenshots).length > 0" v-for="s in screenshots" :key="s.content" :src="s"/>
+        </flickity>
     </div>
 </template>
 
 <script>
 import TechChip from "./TechChip.vue";
 import IconButton from "ui/IconButton.vue";
+import Flickity from "vue-flickity";
 
 export default {
   name: "CodeProject",
@@ -32,22 +33,26 @@ export default {
   },
   components: {
     TechChip,
-    IconButton
+    IconButton,
+    Flickity
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg")
+      icGithub: require("assets/icons/ic_github_light.svg"),
+      flickityOptions: {
+        wrapAround: true,
+        autoPlay: true,
+        lazyLoad: true,
+        pageDots: false
+      }
     };
-  },
-  methods: {
-    goToGithub: function(event) {
-      window.location.href = githubLink;
-    }
   }
 };
 </script>
 
 <style lang="scss">
+@import "~flickity/css/flickity.css";
+
 #CodeProject {
   display: flex;
   flex-direction: row-reverse;
@@ -57,6 +62,7 @@ export default {
   padding: 10px;
   @include tablet-portrait-and-below {
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -92,25 +98,12 @@ export default {
 }
 
 .screenshots-block {
-  min-width: 50%;
-  display: flex;
-  flex-direction: row;
-  align-content: flex-end;
-  align-items: center;
-  justify-content: flex-end;
-  @include tablet-portrait-and-below {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  min-width: 30%;
 }
 
 .screenshot {
-  margin: 0 2%;
-  width: 36%;
-  height: auto;
-   @include tablet-portrait-and-below {
-    width: 100%;
-    margin: 10%;
-  }
+  width: auto;
+  height: 100%;
+  margin-right: 4%;
 }
 </style>
