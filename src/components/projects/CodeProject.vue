@@ -9,10 +9,12 @@
             </div>
             <a class="button-link" :href="githubLink" target="_blank">
               <icon-button id="button-github" :icon="icGithub" text="Source code"></icon-button>
-            </a>
+            </a>  
         </div>
         <flickity class="screenshots-block flickity" ref="flickity" v-if="Object.keys(screenshots).length > 0" :options="flickityOptions">
-            <img class="screenshot" v-if="Object.keys(screenshots).length > 0" v-for="s in screenshots" :key="s.content" :src="s"/>
+             <div class="screenshot-container" v-for="s in screenshots" :key="s.content">
+              <img class="screenshot" :data-flickity-lazyload-src="s"/>
+            </div>
         </flickity>
     </div>
 </template>
@@ -41,9 +43,8 @@ export default {
       icGithub: require("assets/icons/ic_github_light.svg"),
       flickityOptions: {
         wrapAround: true,
-        autoPlay: true,
+        pageDots: false,
         lazyLoad: true,
-        pageDots: false
       }
     };
   }
@@ -54,9 +55,10 @@ export default {
 @import "~flickity/css/flickity.css";
 
 #CodeProject {
+  max-height: 50vh;
   display: flex;
   flex-direction: row-reverse;
-  margin: 0 auto;
+  margin: 8% auto;
   height: 70vh;
   width: 90vw;
   padding: 10px;
@@ -99,11 +101,21 @@ export default {
 
 .screenshots-block {
   min-width: 30%;
+  @include tablet-portrait-and-below {
+    min-width: 100%;
+    margin: 0 4%;
+  }
+}
+
+.screenshot-container {
+  width: 100%;
+  height: 100%;
 }
 
 .screenshot {
-  width: auto;
-  height: 100%;
-  margin-right: 4%;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
 }
 </style>
