@@ -11,18 +11,19 @@
               <icon-button id="button-github" :icon="icGithub" text="Source code"></icon-button>
             </a>  
         </div>
-        <flickity class="screenshots-block flickity" ref="flickity" v-if="Object.keys(screenshots).length > 0" :options="flickityOptions">
+        <div class="screenshots-block flickity" ref="flickity-imagesloaded" data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' >
              <div class="screenshot-container" v-for="s in screenshots" :key="s">
-              <img class="screenshot" :data-flickity-lazyload-src="s"/>
+              <img class="screenshot" :src="s"/>
             </div>
-        </flickity>
+        </div>
     </div>
 </template>
 
 <script>
 import TechChip from "./TechChip.vue";
 import IconButton from "ui/IconButton.vue";
-import Flickity from "vue-flickity";
+import Flickity from "flickity-imagesloaded";
+var flickity = new Flickity(".flickity");
 
 export default {
   name: "CodeProject",
@@ -35,18 +36,11 @@ export default {
   },
   components: {
     TechChip,
-    IconButton,
-    Flickity
+    IconButton
   },
   data: function() {
     return {
       icGithub: require("assets/icons/ic_github_light.svg"),
-      flickityOptions: {
-        wrapAround: true,
-        pageDots: false,
-        imagesLoaded: true,
-        lazyLoad: true
-      }
     };
   }
 };
