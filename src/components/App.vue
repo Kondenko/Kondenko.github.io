@@ -27,9 +27,9 @@ export default {
   justify-content: center;
   align-content: flex-start;
   & > div {
-    padding: 25px 16px 25px;
+    padding: 25px 24px 25px;
     @include desktop-and-up {
-    padding: 25px 50px 25px;
+      padding: 25px 50px 25px;
     }
   }
 }

@@ -12,7 +12,7 @@
             </a>  
         </div>
         <flickity class="screenshots-block flickity" ref="flickity" v-if="Object.keys(screenshots).length > 0" :options="flickityOptions">
-             <div class="screenshot-container" v-for="s in screenshots" :key="s.content">
+             <div class="screenshot-container" v-for="s in screenshots" :key="s">
               <img class="screenshot" :data-flickity-lazyload-src="s"/>
             </div>
         </flickity>
@@ -44,7 +44,8 @@ export default {
       flickityOptions: {
         wrapAround: true,
         pageDots: false,
-        lazyLoad: true,
+        imagesLoaded: true,
+        lazyLoad: true
       }
     };
   }
@@ -55,9 +56,9 @@ export default {
 @import "~flickity/css/flickity.css";
 
 #CodeProject {
-  max-height: 50vh;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
   margin: 8% auto;
   height: 70vh;
   width: 90vw;
@@ -69,7 +70,7 @@ export default {
 }
 
 .desc-block {
-  min-width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -88,7 +89,7 @@ export default {
 
 .tech-chips {
   margin-bottom: auto;
-  margin-left: -2%;
+  margin-left: -16px;
 }
 
 .button-link {
@@ -96,14 +97,17 @@ export default {
 }
 
 #button-github {
-  margin-top: 10%;
+  margin-top: 20%;
+  @include tablet-portrait-and-below {
+    align-self: center;
+  }
 }
 
 .screenshots-block {
-  min-width: 30%;
+  width: 40%;
   @include tablet-portrait-and-below {
     min-width: 100%;
-    margin: 0 4%;
+    margin: 10% 4%;
   }
 }
 

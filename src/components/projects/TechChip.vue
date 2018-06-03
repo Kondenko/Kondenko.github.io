@@ -15,13 +15,13 @@ export default {
 #tech-chip {
   height: 28px;
   min-width: 100px;
-  background: $techChipBackgroundColor;
+  background: $textSecondaryColor;
   border-radius: 90px;
   font-family: $font-hind-madurai;
   text-align: center;
   line-height: normal;
   padding: 5px 15px;
-  margin: 2%;
+  margin: 8px 6px;
   border: none;
   outline: none;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);

@@ -42,8 +42,30 @@ export default {
           technologies: ["Wakatime API", "(Rx)Kotlin", "Dagger 2", "Retrofit"],
           githubLink: "https://github.com/Kondenko/pocketwaka",
           screenshots: [
-                require("assets/projects/dev/pocketwaka/1.png"),
-                require("assets/projects/dev/pocketwaka/2.png"),
+            require("assets/projects/dev/pocketwaka/1.png"),
+            require("assets/projects/dev/pocketwaka/2.png")
+          ]
+        },
+        {
+          name: "Yandex.Translate client",
+          desc:
+            "This is translator app which uses Yandex.Translate API. It has history and bookmarks. I made this app as a test task for Yandex Mobile Development School in 2017.",
+          technologies: [
+            "Yandex.Translate API",
+            "RxJava 2",
+            "Dagger 2",
+            "Realm",
+            "Retrofit",
+            "EventBus",
+            "Mockito",
+            "Robolectric",
+            "MockWebServer",
+            "Espresso"
+          ],
+          githubLink: "https://github.com/Kondenko/yandex-translate-client",
+          screenshots: [
+            require("assets/projects/dev/yandex-translate/1.png"),
+            require("assets/projects/dev/yandex-translate/2.png")
           ]
         }
       ]
@@ -73,5 +95,4 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
 </style>
