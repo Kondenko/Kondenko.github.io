@@ -2,16 +2,6 @@
 <div id="projects">
     <h1>Projects</h1>
     <vue-tabs>
-        <v-tab id="design-projects" title="Design">
-             <design-project 
-             v-for="p in designProjects"
-             :key="p.content"
-             :title="p.title"
-             :subtitle="p.subtitle"
-             :background="p.background"
-             :link="p.link"
-             ></design-project>
-        </v-tab>
         <v-tab id="code-projects" title="Code">
             <code-project 
              v-for="p in devProjects"
@@ -22,6 +12,16 @@
              :githubLink="p.githubLink"
              :screenshots="p.screenshots"
              ></code-project>
+        </v-tab>
+        <v-tab id="design-projects" title="Design">
+             <design-project 
+             v-for="p in designProjects"
+             :key="p.content"
+             :title="p.title"
+             :subtitle="p.subtitle"
+             :background="p.background"
+             :link="p.link"
+             ></design-project>
         </v-tab>
     </vue-tabs>
 </div>
@@ -79,10 +79,47 @@ export default {
       ],
       designProjects: [
         {
-          title: "Test test test",
-          subtitle: "Test test test",
+          title: "Steaky",
+          subtitle: "Russian Design Cup 2016",
           background: require("assets/projects/design/steaky.png"),
           link: "https://russiandesigncup.ru/solution/1321/"
+        },
+        {
+          title: "Google Play Music redesign",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/gpm.png"),
+          link:
+            "https://www.uplabs.com/posts/google-play-music-redesign-interface"
+        },
+        {
+          title: "E-commerce store",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/e-commerce-store.png"),
+          link: "https://www.uplabs.com/posts/e-commerce-tech-shop-dailyui-012"
+        },
+        {
+          title: "Dribbble profile",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/dribbble-profile.png"),
+          link: "https://www.uplabs.com/posts/dark-dribbble-profile"
+        },
+        {
+          title: "Email receipt",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/email-receipt.png"),
+          link: ""
+        },
+        {
+          title: "Leaderboard",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/leaderboard.png"),
+          link: ""
+        },
+        {
+          title: "Settings",
+          subtitle: "DailyUI",
+          background: require("assets/projects/design/settings.png"),
+          link: ""
         }
       ]
     };
@@ -110,5 +147,16 @@ h1 {
   align-content: center;
   align-items: center;
   justify-content: center;
+}
+
+#p-design-projects {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
 }
 </style>

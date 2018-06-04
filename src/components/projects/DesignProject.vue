@@ -1,5 +1,5 @@
 <template>
-    <div id="DesignProject">
+    <div id="DesignProject" v-on:click="openProject">
         <img class="background" :src="background" :alt="title" target="_blank">
         <div class="text">
            <div class="title">{{ title }}</div>
@@ -16,34 +16,45 @@ export default {
     subtitle: String,
     background: String,
     link: String
+  },
+  methods: {
+    openProject: function(event) {
+      if (this.link) window.location.href = this.link;
+    }
   }
 };
 </script>
 
 <style lang="scss">
-$size: 250px;
+$size: 225px;
+$animDuration: 0.2s;
 #DesignProject {
   position: relative;
   width: $size;
   height: $size;
-  margin: 20px;
+  margin: 10px;
+  padding: 16px;
   $root: &;
+  box-shadow: none;
+  transition: box-shadow $animDuration ease-out;
+  &:hover {
+    box-shadow: 0 4px 16px rgba($color: $blackColor, $alpha: 0.5);
+  }
   & > * {
     position: absolute;
     left: 0;
     top: 0;
+    user-select: none;
   }
 
   .background {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Do not scale the image */
-    object-position: 0% 0%; /* Center the image within the element */
+    object-fit: cover; // crop to fit
+    object-position: 50% 0%;
   }
 
   .text {
-    $animDuration: 0.2s;
-
     height: 100%;
     width: 100%;
     background: linear-gradient(
@@ -56,11 +67,6 @@ $size: 250px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    box-shadow: none;
-    transition: box-shadow $animDuration ease-out;
-    :hover > & {
-      box-shadow: 0 4px 16px 1px rgba($color: $blackColor, $alpha: 0.4)
-    }
 
     // h2 from App.vue
     .title {
