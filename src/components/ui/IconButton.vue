@@ -19,7 +19,6 @@ export default {
       type: Boolean
     }
   }
-
 };
 </script>
 
@@ -31,12 +30,16 @@ export default {
   justify-content: center;
 }
 
-$iconSize: 20px;
+$iconSize: 26px;
 .button-icon {
   align-self: flex-start;
   width: $iconSize;
   height: $iconSize;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   margin-right: 10px;
+  margin-bottom: 3%;
 }
 
 $iconSize: 16px;
@@ -46,5 +49,4 @@ $iconSize: 16px;
   height: $iconSize;
   margin-right: 5px;
 }
-
 </style>

@@ -89,7 +89,7 @@ export default {
 
 .tech-chips {
   margin-bottom: auto;
-  margin-left: -16px;
+  margin-left: -8px;
 }
 
 .button-link {
@@ -97,7 +97,7 @@ export default {
 }
 
 #button-github {
-  margin-top: 20%;
+  margin-top: 8%;
   @include mobile-only {
     margin-top: 5%;
     align-self: center;
