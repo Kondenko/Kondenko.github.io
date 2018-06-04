@@ -108,6 +108,9 @@ $avatarSize: 125px;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  @include mobile-only {
+    justify-content: center;
+  }
 }
 
 #resume-button {

@@ -15,7 +15,8 @@ export default {
 #tech-chip {
   height: 28px;
   min-width: 100px;
-  background: $textSecondaryColor;
+  background: $techChipBackgroundColor;
+  color: $textPrimaryColor;
   border-radius: 90px;
   font-family: $font-hind-madurai;
   text-align: center;

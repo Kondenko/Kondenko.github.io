@@ -26,6 +26,7 @@ export default {
   align-items: stretch;
   justify-content: center;
   align-content: flex-start;
+  background: $mainBackgroundColor;
   & > div {
     padding: 25px 24px 25px;
     @include desktop-and-up {

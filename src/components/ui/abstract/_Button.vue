@@ -29,10 +29,10 @@ $contentColor: $accentColor;
   border: none;
   outline: none;
   opacity: 0.9;
-  box-shadow: 0px 4px 10px rgba($color: $accentColor, $alpha: 0.5);
+  box-shadow: 0px 4px 10px rgba($color: $accentColor, $alpha: 0.4);
   transition: 200ms box-shadow ease-out;
   &:hover {
-    box-shadow: 0px 6px 14px rgba($color: $accentColor, $alpha: 0.7);
+    box-shadow: 0px 4px 12px rgba($color: $accentColor, $alpha: 0.7);
   }
 }
 

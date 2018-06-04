@@ -7,8 +7,8 @@
             <div class="tech-chips">
               <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
             </div>
-            <a class="button-link" :href="githubLink" target="_blank">
-              <icon-button id="button-github" :icon="icGithub" text="Source code"></icon-button>
+            <a id="button-github" class="button-link" :href="githubLink" target="_blank">
+              <icon-button :icon="icGithub" text="Source code"></icon-button>
             </a>  
         </div>
         <div class="screenshots-block flickity" ref="flickity-imagesloaded" data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' >
@@ -40,7 +40,7 @@ export default {
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg"),
+      icGithub: require("assets/icons/ic_github_light.svg")
     };
   }
 };
@@ -54,10 +54,13 @@ export default {
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin: 8% auto;
-  height: 70vh;
   width: 90vw;
   padding: 10px;
-  @include tablet-portrait-and-below {
+  @include desktop-and-up {
+      height: 70vh;
+  }
+  @include mobile-only {
+    padding: 0px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -70,6 +73,9 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   margin: 0 5%;
+  @include mobile-only {
+    width: 100%;
+  }
 }
 
 .desc-text {
@@ -92,15 +98,16 @@ export default {
 
 #button-github {
   margin-top: 20%;
-  @include tablet-portrait-and-below {
+  @include mobile-only {
+    margin-top: 5%;
     align-self: center;
   }
 }
 
 .screenshots-block {
   width: 40%;
-  @include tablet-portrait-and-below {
-    min-width: 100%;
+  @include mobile-only {
+    width: 100%;
     margin: 10% 4%;
   }
 }
