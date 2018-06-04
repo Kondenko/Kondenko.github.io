@@ -2,11 +2,20 @@
 <div id="projects">
     <h1>Projects</h1>
     <vue-tabs>
-        <v-tab title="Code">
+        <v-tab id="design-projects" title="Design">
+             <design-project 
+             v-for="p in designProjects"
+             :key="p.content"
+             :title="p.title"
+             :subtitle="p.subtitle"
+             :background="p.background"
+             :link="p.link"
+             ></design-project>
+        </v-tab>
+        <v-tab id="code-projects" title="Code">
             <code-project 
-            class="social-icon"
              v-for="p in devProjects"
-             :key="p.name"
+             :key="p.content"
              :name="p.name"
              :desc="p.desc"
              :technologies="p.technologies"
@@ -14,15 +23,13 @@
              :screenshots="p.screenshots"
              ></code-project>
         </v-tab>
-        <v-tab title="Design">
-            WIP
-        </v-tab>
     </vue-tabs>
 </div>
 </template>
 
 <script>
 import CodeProject from "./CodeProject.vue";
+import DesignProject from "./DesignProject.vue";
 import { VueTabs, VTab } from "vue-nav-tabs/dist/vue-tabs.js";
 
 export default {
@@ -30,7 +37,8 @@ export default {
   components: {
     VueTabs,
     VTab,
-    CodeProject
+    CodeProject,
+    DesignProject
   },
   data() {
     return {
@@ -67,6 +75,14 @@ export default {
             require("assets/projects/dev/yandex-translate/1.png"),
             require("assets/projects/dev/yandex-translate/2.png")
           ]
+        }
+      ],
+      designProjects: [
+        {
+          title: "Test test test",
+          subtitle: "Test test test",
+          background: require("assets/projects/design/steaky.png"),
+          link: "https://russiandesigncup.ru/solution/1321/"
         }
       ]
     };
