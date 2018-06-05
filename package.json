@@ -12,10 +12,10 @@
     "deploy": "npm run build; push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
   },
   "dependencies": {
+    "flickity": "^2.1.1",
     "flickity-imagesloaded": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "vue": "^2.5.11",
-    "vue-flickity": "^1.1.2",
     "vue-image-lightbox": "^5.7.0",
     "vue-js-modal": "^1.3.15",
     "vue-nav-tabs": "^0.5.7"
