@@ -56,7 +56,7 @@ $animDuration: 0.2s;
   max-width: 100%;
   margin: 10px;
   padding: 16px;
-  $root: &;
+cursor: pointer;
   box-shadow: none;
   transition: box-shadow $animDuration ease-out;
   @include mobile-only {

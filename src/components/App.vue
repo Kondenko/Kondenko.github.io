@@ -67,7 +67,7 @@ h3 {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 35px;
   text-align: start;
 }
 

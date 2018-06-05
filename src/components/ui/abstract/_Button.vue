@@ -28,11 +28,11 @@ $contentColor: $accentColor;
   padding: 5px 25px 5px 10px;
   border: none;
   outline: none;
-  opacity: 0.9;
-  box-shadow: 0px 4px 10px rgba($color: $accentColor, $alpha: 0.3);
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba($color: $accentColor, $alpha: 0.4);
   transition: 200ms box-shadow ease-out;
   &:hover {
-    box-shadow: 0px 4px 12px rgba($color: $accentColor, $alpha: 0.7);
+    box-shadow: 0px 5px 12px rgba($color: $accentColor, $alpha: 0.6);
   }
 }
 
