@@ -11,7 +11,7 @@
               <icon-button :icon="icGithub" text="Source code"></icon-button>
             </a>  
         </div>
-        <div class="screenshots-block flickity" ref="flickity-imagesloaded" data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' >
+        <div v-if="Object.keys(screenshots).length > 0" class="screenshots-block flickity" ref="flickity-imagesloaded" data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' >
              <div class="screenshot-container" v-for="s in screenshots" :key="s">
               <img class="screenshot" :src="s"/>
             </div>

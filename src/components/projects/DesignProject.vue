@@ -19,24 +19,48 @@ export default {
   },
   methods: {
     openProject: function(event) {
-      if (this.link) window.location.href = this.link;
+      if (this.link) {
+        window.location.href = this.link;
+      } else {
+        this.$modal.show(
+          {
+            template: `<img style="width: 100%; height=100%; object-fit: cover; object-position: 50% 50%; user-select: none;" :src="image">`,
+            props: ["image"]
+          },
+          {
+            image: this.background
+          },
+          {
+            name: "image-modal",
+            classes: ["image-modal"],
+            height: "auto",
+            minWidth: "50%",
+            adaptive: true
+          }
+        );
+      }
     }
   }
 };
 </script>
 
 <style lang="scss">
-$size: 225px;
+$sizeDesktop: 225px;
+$sizeMobile: 300px;
 $animDuration: 0.2s;
 #DesignProject {
   position: relative;
-  width: $size;
-  height: $size;
+  width: $sizeDesktop;
+  height: $sizeDesktop;
   margin: 10px;
   padding: 16px;
   $root: &;
   box-shadow: none;
   transition: box-shadow $animDuration ease-out;
+  @include mobile-only {
+    width: $sizeMobile;
+    height: $sizeMobile;
+  }
   &:hover {
     box-shadow: 0 4px 16px rgba($color: $blackColor, $alpha: 0.5);
   }
@@ -52,6 +76,14 @@ $animDuration: 0.2s;
     height: 100%;
     object-fit: cover; // crop to fit
     object-position: 50% 0%;
+    user-select: none;
+  }
+
+  .image-modal {
+    user-select: none;
+    @include mobile-only {
+      width: 100vw;
+    }
   }
 
   .text {

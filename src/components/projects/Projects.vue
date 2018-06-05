@@ -22,6 +22,7 @@
              :background="p.background"
              :link="p.link"
              ></design-project>
+            <modals-container/>
         </v-tab>
     </vue-tabs>
 </div>
