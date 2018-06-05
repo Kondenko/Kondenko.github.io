@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './components/App.vue'
 
-var name = "Vladimir Kondenko"
+import VModal from "vue-js-modal";
+
+Vue.use(VModal, { dynamic: true });
 
 new Vue({
   el: "#app",

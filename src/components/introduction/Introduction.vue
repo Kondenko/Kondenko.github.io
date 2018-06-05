@@ -1,17 +1,19 @@
 <template>
   <div id="introduction">
     <img id="avatar" v-bind:src="avatar">
+    <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
-    <p id="bio">
+    <p class="body" id="bio">
       I prototype, design and create awesome mobile apps. <br> 
       I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
-      I also have a Telegram <a :href="channelLink" target="_blank">channel</a> about design and development.
+      I also have a Telegram <a class="link" :href="channelLink" target="_blank">channel</a> about design and development.
     </p>
     <div id="buttons">
       <icon-button id="resume-button" :icon="icDownload" text="Resume" v-on:click.native="downloadResume"></icon-button>
       <div id="social-buttons">
         <icon class="social-icon" v-for="{icon, link} of socialButtons" :key="link" :ic="icon" :url="link" :openInNewTab="true"></icon>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -38,7 +40,7 @@ export default {
       avatar: require("assets/img_avatar.png"),
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
-          {
+        {
           icon: require("ic/ic_mail.svg"),
           link: "mailto:kondenko2011@gmail.com"
         },
@@ -46,7 +48,7 @@ export default {
           icon: require("ic/ic_facebook.svg"),
           link: "https://www.facebook.com/v.kondenko"
         },
-          {
+        {
           icon: require("ic/ic_twitter.svg"),
           link: "https://twitter.com/v_kondenko"
         },
@@ -64,16 +66,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+h1 {
+  color: $accentColor;
+}
+
 #introduction {
-  max-height: 100vh;
+  @include desktop-and-up {
+    min-height: 100vh;
+  }
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   align-content: stretch;
   justify-content: flex-start;
-  max-width: 620px;
+  max-width: 85%;
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 $avatarSize: 125px;
@@ -82,11 +92,7 @@ $avatarSize: 125px;
   flex-shrink: 1;
   height: $avatarSize;
   width: $avatarSize;
-  margin: 50px 0px;
-}
-
-#greeting {
-  align-self: flex-start;
+  margin: 0px 0px 50px 0px;
 }
 
 #bio {
@@ -95,11 +101,20 @@ $avatarSize: 125px;
 }
 
 #buttons {
-  flex-grow: 1;
+  max-width: 100%;
+  align-self: center;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  @include mobile-only {
+    justify-content: center;
+  }
+}
+
+#resume-button {
+  margin: 0 4% 0 0;
 }
 
 #social-buttons {
@@ -110,9 +125,9 @@ $avatarSize: 125px;
   width: auto;
   min-height: 38px;
   background-color: $backgroundColor;
-  border-radius: 10px;
-  padding: 0px 15px;
-  margin: 0px 20px;
+  border-radius: 90px;
+  margin: 6% 0;
+  padding: 0px 2%;
   opacity: 0.6;
 }
 
