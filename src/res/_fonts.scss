@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Hind+Madurai:400,700');
 @import '~mixins/font-face';
 @include font-face("HindMysuru-Bold", "~assets/fonts/HindMysuru-Bold", null, null, "otf");
+@import url('https://fonts.googleapis.com/css?family=Hind+Madurai:400,700');
 
 
 $font-hind-mysuru: "HindMysuru-Bold", sans-serif;

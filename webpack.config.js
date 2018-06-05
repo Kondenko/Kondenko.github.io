@@ -80,7 +80,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'name=img/[name].[ext]?[hash]'
+          name: 'name=img/[path][name].[ext]?[hash]'
         }
       },
       {
@@ -110,9 +110,10 @@ module.exports = {
       ui: path.resolve(__dirname, 'src/components/ui/'),
       mixins: path.resolve(__dirname, 'src/mixins/'),
       res: path.resolve(__dirname, 'src/res/'),
+      vtabs: path.resolve(__dirname, 'node-modules/vue-nav-tabs'),
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js', '.vue', '.json', ".scss"]
   },
   devServer: {
     historyApiFallback: true,
@@ -129,7 +130,7 @@ module.exports = {
       filename: './index.html' //relative to root of the application
     }),
   ],
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
 }
 
 if (isProd) {

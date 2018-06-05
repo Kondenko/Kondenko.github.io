@@ -1,27 +1,38 @@
 <template>
   <div id="app">
     <introduction></introduction>
+    <projects id="projects"></projects>
   </div>
 </template>
 
 <script>
-import Introduction from "./Introduction.vue";
+import Introduction from "./introduction/Introduction.vue";
+import Projects from "./projects/Projects.vue";
 
 export default {
   name: "app",
   components: {
-    Introduction
+    Introduction,
+    Projects
   }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 #app {
-  min-height: 100vh;
+  max-width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  padding: 0px 16px;
+  align-content: flex-start;
+  background: $mainBackgroundColor;
+  & > div {
+    padding: 25px 24px 25px;
+    @include desktop-and-up {
+      padding: 25px 50px 25px;
+    }
+  }
 }
 
 h1 {
@@ -30,11 +41,28 @@ h1 {
   font-weight: bold;
   line-height: 125%;
   font-size: 48px;
-  color: $accentColor;
   margin: 0;
 }
 
-p {
+h2 {
+  font-family: $font-hind-madurai;
+  font-style: bold;
+  font-weight: 700;
+  line-height: 50px;
+  font-size: 36px;
+  margin: 0;
+}
+
+h3 {
+  font-family: $font-hind-madurai;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 50px;
+  font-size: 14px;
+  margin: 0;
+}
+
+.body {
   font-family: $font-hind-madurai;
   font-style: normal;
   font-weight: normal;
@@ -43,8 +71,8 @@ p {
   text-align: start;
 }
 
-a {
-  @extend p;
+.link {
+  @extend .body;
   font-family: $font-hind-madurai;
   text-decoration: underline;
   text-decoration-style: unset;
