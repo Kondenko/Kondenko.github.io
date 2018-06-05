@@ -11,7 +11,12 @@
               <icon-button :icon="icGithub" text="Source code"></icon-button>
             </a>  
         </div>
-        <div v-if="Object.keys(screenshots).length > 0" class="screenshots-block flickity" ref="flickity-imagesloaded" data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' >
+        <div
+          v-if="screenshots"
+          ref="flickity"
+          class="flickity screenshots-block" 
+          data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' 
+          >
              <div class="screenshot-container" v-for="s in screenshots" :key="s">
               <img class="screenshot" :src="s"/>
             </div>
@@ -23,7 +28,6 @@
 import TechChip from "./TechChip.vue";
 import IconButton from "ui/IconButton.vue";
 import Flickity from "flickity-imagesloaded";
-var flickity = new Flickity(".flickity");
 
 export default {
   name: "CodeProject",
@@ -40,7 +44,7 @@ export default {
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg")
+      icGithub: require("assets/icons/ic_github_light.svg"),
     };
   }
 };
@@ -57,7 +61,7 @@ export default {
   width: 90vw;
   padding: 10px;
   @include desktop-and-up {
-      height: 70vh;
+    height: 70vh;
   }
   @include mobile-only {
     padding: 0px;
@@ -104,8 +108,11 @@ export default {
   }
 }
 
+$heightScreenshot: 450px;
+
 .screenshots-block {
   width: 40%;
+  height: $heightScreenshot;
   @include mobile-only {
     width: 100%;
     margin: 10% 4%;

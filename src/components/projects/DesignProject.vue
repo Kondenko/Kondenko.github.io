@@ -34,7 +34,7 @@ export default {
             name: "image-modal",
             classes: ["image-modal"],
             height: "auto",
-            minWidth: "50%",
+            minWidth: '50%',
             adaptive: true,
             transition: 'scale'
           }
