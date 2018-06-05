@@ -35,7 +35,8 @@ export default {
             classes: ["image-modal"],
             height: "auto",
             minWidth: "50%",
-            adaptive: true
+            adaptive: true,
+            transition: 'scale'
           }
         );
       }
@@ -46,12 +47,13 @@ export default {
 
 <style lang="scss">
 $sizeDesktop: 225px;
-$sizeMobile: 300px;
+$sizeMobile: 268px;
 $animDuration: 0.2s;
 #DesignProject {
   position: relative;
   width: $sizeDesktop;
   height: $sizeDesktop;
+  max-width: 100%;
   margin: 10px;
   padding: 16px;
   $root: &;
