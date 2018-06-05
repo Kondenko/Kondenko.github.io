@@ -73,14 +73,14 @@ h1 {
 
 #introduction {
   @include desktop-and-up {
-    min-height: 100vh;
+    height: 74vh;
   }
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: stretch;
-  justify-content: flex-start;
+  justify-content: center;
   max-width: 85%;
   margin: 0 auto;
   margin-top: 25px;

@@ -61,7 +61,7 @@ export default {
   width: 90vw;
   padding: 10px;
   @include desktop-and-up {
-    height: 70vh;
+    max-height: 70vh;
   }
   @include mobile-only {
     padding: 0px;
