@@ -77,7 +77,6 @@ h3 {
   text-decoration: underline;
   text-decoration-style: unset;
   text-decoration-line: underline;
-  text-transform: lowercase;
   color: $accentColor;
   &:hover {
     opacity: $hoverOpacity;
