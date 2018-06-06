@@ -46,8 +46,11 @@ export default {
       devProjects: [
         {
           name: "PocketWaka",
-          desc:
-            "PocketWaka is a simple client for wakatime.com. It shows your coding activity and helps you track the time spent on your projects. It also shows what languages and IDEs you use the most.",
+          desc: `
+          PocketWaka is a client for <a class="link" href="http://www.wakatime.com" target="_blank">Wakatime</a>. 
+          It shows your coding activity and helps you track the time spent on your projects. 
+          It also shows what languages and IDEs you use the most.
+          `,
           technologies: ["Wakatime API", "(Rx)Kotlin", "Dagger 2", "Retrofit"],
           githubLink: "https://github.com/Kondenko/pocketwaka",
           screenshots: [
@@ -57,8 +60,11 @@ export default {
         },
         {
           name: "Yandex.Translate client",
-          desc:
-            "This is translator app which uses Yandex.Translate API. It has history and bookmarks. I made this app as a test task for Yandex Mobile Development School in 2017.",
+          desc: `
+            This is a translator app which uses Yandex.Translate API. 
+            It uses the Room database to store translations history and bookmarks.
+            I made this app as a test task for Yandex Mobile Development School in 2017.
+          `,
           technologies: [
             "Yandex.Translate API",
             "RxJava 2",
