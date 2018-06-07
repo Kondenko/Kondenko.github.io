@@ -20,8 +20,10 @@ export default {
   methods: {
     openProject: function(event) {
       if (this.link) {
+        this.$ga.event("click", "designProjectLink", this.title);
         window.location.href = this.link;
       } else {
+        this.$ga.event("click", "designProjectPreview", this.title);
         this.$modal.show(
           {
             template: `<img style="width: 100%; height=100%; object-fit: cover; object-position: 50% 50%; user-select: none;" :src="image">`,
@@ -34,9 +36,9 @@ export default {
             name: "image-modal",
             classes: ["image-modal"],
             height: "auto",
-            minWidth: '50%',
+            minWidth: "50%",
             adaptive: true,
-            transition: 'scale'
+            transition: "scale"
           }
         );
       }
@@ -56,7 +58,7 @@ $animDuration: 0.2s;
   max-width: 100%;
   margin: 10px;
   padding: 16px;
-cursor: pointer;
+  cursor: pointer;
   box-shadow: none;
   transition: box-shadow $animDuration ease-out;
   @include mobile-only {

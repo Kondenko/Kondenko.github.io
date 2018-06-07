@@ -8,7 +8,7 @@
               <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
             </div>
             <a id="button-github" class="button-link" :href="githubLink" target="_blank">
-              <icon-button :icon="icGithub" text="Source code"></icon-button>
+              <icon-button :icon="icGithub" text="Source code" v-on:click.native="onGithubClicked"></icon-button>
             </a>  
         </div>
         <div
@@ -41,6 +41,11 @@ export default {
   components: {
     TechChip,
     IconButton
+  },
+  methods: {
+    onGithubClicked() {
+      this.$ga.event('click', 'projectSource', this.githubLink)
+    }
   },
   data: function() {
     return {

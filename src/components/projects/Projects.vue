@@ -61,7 +61,7 @@ export default {
         {
           name: "Yandex.Translate client",
           desc: `
-            This is a translator app which uses Yandex.Translate API. 
+            This is a translation app which uses Yandex.Translate API. 
             It uses the Room database to store translations history and bookmarks.
             I made this app as a test task for Yandex Mobile Development School in 2017.
           `,
