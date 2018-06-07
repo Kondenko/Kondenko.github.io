@@ -3,11 +3,7 @@
     <img id="avatar" v-bind:src="avatar">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
-    <p class="body" id="bio">
-      I prototype, design and create awesome mobile apps. <br> 
-      I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
-      I also have a Telegram <a class="link" :href="channelLink" target="_blank">channel</a> about design and development.
-    </p>
+    <p class="body" id="bio" v-html="bio"></p>
     <div id="buttons">
       <icon-button id="resume-button" :icon="icDownload" text="Resume" v-on:click.native="downloadResume"></icon-button>
       <div id="social-buttons">
@@ -30,12 +26,21 @@ export default {
   },
   methods: {
     downloadResume: function(event) {
+      this.$ga.event("click", "resume");
       window.location.href = require("assets/cv.pdf");
+    },
+    onChannelClicked() {
+      this.$ga.event("click", "link", this.channelLink);
     }
   },
   data() {
     return {
       greeting: "Hi. I'm Vladimir Kondenko.",
+      bio: `
+      I prototype, design and develop awesome mobile apps. <br> 
+      I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
+      I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
+      `,
       channelLink: "http://t.me/aboutmobile",
       avatar: require("assets/img_avatar.png"),
       icDownload: require("ic/ic_download.svg"),
