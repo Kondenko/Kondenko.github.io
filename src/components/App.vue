@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <introduction></introduction>
+    <k-menu :items="menuItems"></k-menu>
+    <introduction id="aboutMe"></introduction>
     <projects id="projects"></projects>
     <experience id="experience"></experience>
   </div>
 </template>
 
 <script>
+import KMenu from "./menu/KMenu.vue";
 import Introduction from "./introduction/Introduction.vue";
 import Projects from "./projects/Projects.vue";
 import Experience from "./experience/Experience.vue";
@@ -14,9 +16,18 @@ import Experience from "./experience/Experience.vue";
 export default {
   name: "app",
   components: {
+    KMenu,
     Introduction,
     Projects,
     Experience
+  },
+  data: function() {
+    const itemsMap = new Map()
+    itemsMap['aboutMe'] = "About me"
+    itemsMap['projects'] = "Projects"
+    return {
+      menuItems: itemsMap
+    }
   }
 };
 </script>
