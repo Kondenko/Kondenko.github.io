@@ -1,6 +1,14 @@
 <template>
     <div id="kmenu">
-        <a class="item" href="#" v-for="(name, id) in items" :key="id.content" v-scroll-to="`#${id}`">{{ name }}</a>
+        <a 
+        v-for="(name, id) in items" 
+        href="#"
+        :class="[menuId(id) == selectedItem ? selectedClass : '', defaultClass]" 
+        :id="menuId(id)"
+        :key="id.content" 
+        v-scroll-to="`#${id}`"
+        @click="onItemClick"
+        >{{ name }}</a>
     </div>
 </template>
 
@@ -10,35 +18,56 @@ export default {
   props: {
     items: Map // id to item name
   },
-  mounted() {
-    console.log(this.items);
+  data: function() {
+    return {
+      selectedItem: undefined,
+      defaultClass: 'item',
+      selectedClass: 'selected'
+    }
+  },
+  methods: {
+    onItemClick: function(event) {
+      this.selectedItem = event.target.id
+    },
+    menuId: function(id) {
+      return `menu-item-${id}`;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 #kmenu {
-  height: 50px;
-  width: 90vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 20px;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-content: center;
   align-items: center;
   justify-content: center;
+  background-color: $menuBackgroundColor;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .item {
+    width: 96px;
+    height: 48px;
+    color: $textPrimaryColor;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: $font-hind-madurai;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 14px;
+  }
+
+  .selected {
+    color: $accentColor;
+  }
 }
-
-.item {
-  width: 96px;
-  height: 48px;
-  color: $textPrimaryColor;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: $font-hind-madurai;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 50px;
-  font-size: 14px;
-}
-
-
 </style>
