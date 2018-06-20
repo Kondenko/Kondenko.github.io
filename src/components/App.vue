@@ -2,18 +2,21 @@
   <div id="app">
     <introduction></introduction>
     <projects id="projects"></projects>
+    <experience id="experience"></experience>
   </div>
 </template>
 
 <script>
 import Introduction from "./introduction/Introduction.vue";
 import Projects from "./projects/Projects.vue";
+import Experience from "./experience/Experience.vue";
 
 export default {
   name: "app",
   components: {
     Introduction,
-    Projects
+    Projects,
+    Experience
   }
 };
 </script>
@@ -28,6 +31,7 @@ export default {
   align-content: flex-start;
   background: $mainBackgroundColor;
   & > div {
+    display: block;
     padding: 25px 24px 25px;
     @include desktop-and-up {
       padding: 25px 50px 25px;
