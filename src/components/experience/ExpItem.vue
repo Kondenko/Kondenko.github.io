@@ -1,9 +1,9 @@
 <template>
-    <div class="exp-item">
+    <div class="exp-item" :style="rows">
         <p v-if="showYear" class="year"> {{ year }} </p>
         <h2 class="header" >{{ header }}</h2>
         <p class="body" v-html="text"></p>
-        <img v-if="emoji" class="emoji" :src="emoji" :style="emojiOnRight ? 'grid-column: emoji-right / emoji-right' : 'grid-column: emoji-left / emoji-left'"/>
+        <img v-if="emoji" class="emoji" :src="emoji" :style="emojiPlacement"/>
     </div>
 </template>
 
@@ -17,17 +17,29 @@ export default {
     emoji: String,
     showYear: Boolean,
     emojiOnRight: Boolean
+  },
+  computed: {
+    emojiPlacement() {
+      return this.emojiOnRight ? 'grid-column: emoji-right / emoji-right' : 'grid-column: emoji-left / emoji-left'
+    },
+    rows() {
+      return `grid-template-rows: [year] ${this.showYear ? '100px' : '0px'} [header] auto [body] auto;`
+    }
   }
 };
 </script>
 
 <style lang="scss">
+$emojiSize: 60px;
+$emojiColumnWidth: $emojiSize + 90px * 2;
+
+
 .exp-item {
   min-height: 100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: [emoji-left] 300px [text] 700px [emoji-right] 300px;
-  grid-template-rows: [year] 80px [header] 60px [body] auto;
+  grid-template-columns: [emoji-left] $emojiColumnWidth [text] 700px [emoji-right] $emojiColumnWidth;
+  margin-bottom: 40px;
 }
 
 .year {
@@ -40,28 +52,33 @@ export default {
   text-transform: uppercase;
   color: $experienceYearColor;
   text-align: left;
-  grid-column: text / text;
-  grid-row: year / header;
+  grid-column: text;
+  grid-row: year;
+  align-self: center;
+  justify-self: start;
+  margin: 0 0 25px 0;
 }
 
 .header {
-  grid-column: text / text;
-  grid-row: header / header;
+  margin-bottom: 20px;
+  grid-column: text;
+  grid-row: header;
   align-self: center;
   justify-self: start;
-
 }
 
 .body {
-  grid-column: text / text;
-  grid-row: body / body;
+  grid-column: text;
+  grid-row: body;
+  align-self: start;
+  margin: 0;
 }
 
-$emojiSize: 60px;
 .emoji {
   width: $emojiSize;
   height: $emojiSize;
-  grid-row: body / body;
+  grid-row: body;
   justify-self: center;
+  align-self: start;
 }
 </style>
