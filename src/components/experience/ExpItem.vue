@@ -20,10 +20,14 @@ export default {
   },
   computed: {
     emojiPlacement() {
-      return this.emojiOnRight ? 'grid-column: emoji-right / emoji-right' : 'grid-column: emoji-left / emoji-left'
+      return this.emojiOnRight
+        ? "grid-column: emoji-right / emoji-right"
+        : "grid-column: emoji-left / emoji-left";
     },
     rows() {
-      return `grid-template-rows: [year] ${this.showYear ? '100px' : '0px'} [header] auto [body] auto;`
+      return `grid-template-rows: [year] ${
+        this.showYear ? "100px" : "0px"
+      } [header] auto [body] auto;`;
     }
   }
 };
@@ -33,13 +37,19 @@ export default {
 $emojiSize: 60px;
 $emojiColumnWidth: $emojiSize + 90px * 2;
 
-
 .exp-item {
   min-height: 100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: [emoji-left] $emojiColumnWidth [text] 700px [emoji-right] $emojiColumnWidth;
   margin-bottom: 40px;
+  grid-template-columns: [emoji-left] $emojiColumnWidth [text] auto [emoji-right] $emojiColumnWidth;
+  @include tablet-portrait-and-below {
+    grid-template-columns: [emoji-left] $emojiColumnWidth / 2 [text] auto [emoji-right] $emojiColumnWidth / 2;
+  }
+  @include mobile-portrait-and-below {
+    max-width: 100vw;
+    grid-template-columns: [emoji-left] 0 [text] 90vw [emoji-right] 0;
+  }
 }
 
 .year {
@@ -75,6 +85,13 @@ $emojiColumnWidth: $emojiSize + 90px * 2;
 }
 
 .emoji {
+  @include mobile-only {
+    display: none;
+  }
+  @include tablet-portrait-and-below {
+    width: $emojiSize / 1.5;
+    height: $emojiSize / 1.5;
+  }
   width: $emojiSize;
   height: $emojiSize;
   grid-row: body;
