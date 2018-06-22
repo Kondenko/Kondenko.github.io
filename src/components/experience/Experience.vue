@@ -42,7 +42,7 @@ export default {
           year: 2017,
           header: "Starting a freelance developer carreer",
           text: `
-          I'm freelancing since late 2017, when I got my first client. 
+          I'm freelancing since late 2017 when I got my first client. 
           They needed an app where people can create collages from short videos. 
           I completed it successfully and learned a lot about working with media, video processing and what's most important 
           — I learned  to communicate with clients, meet deadlines and make sure everyone is satisfied. 
@@ -54,9 +54,9 @@ export default {
           year: 2017,
           header: "Studying in Yandex Mobile Development School",
           text: `
-          In 2017, after successfully completing a test task and an interview, I was invited to spend 3 months in Yandex's Moscow office. 
+          After successfully completing a test task and an interview, I was invited to spend 3 months in Yandex's Moscow office. 
           The students took lessons from professional Android developers and other specialists,
-          completed a personal project and a project with a team of a designer, a manager and 4 developers. 
+          completed a personal project and a project with a team of a designer, a manager, and 4 developers. 
           <br> 
           <br> 
           Our team was working on a language learning <a class="link" href="https://www.youtube.com/watch?v=mD_UBhl61ys" target="_blank">app</a> for kids.
