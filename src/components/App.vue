@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <k-menu :items="menuItems"></k-menu>
-    <introduction id="aboutMe"></introduction>
-    <projects id="projects"></projects>
-    <experience id="experience"></experience>
+    <k-menu ref="mainMenu" :items="menuItems"></k-menu>
+    <introduction class="page" @isVisible="onVisibilityChange"></introduction>
+    <projects class="page" @isVisible="onVisibilityChange"></projects>
+    <experience class="page" @isVisible="onVisibilityChange"></experience>
   </div>
 </template>
 
@@ -22,12 +22,18 @@ export default {
     Experience
   },
   data: function() {
-    const itemsMap = new Map()
-    itemsMap['aboutMe'] = "About me"
-    itemsMap['projects'] = "Projects"
-    itemsMap['experience'] = "Experience"
+    const itemsMap = new Map();
+    itemsMap["introduction"] = "About me";
+    itemsMap["projects"] = "Projects";
+    itemsMap["experience"] = "Experience";
     return {
       menuItems: itemsMap
+    };
+  },
+  methods: {
+    onVisibilityChange: function(id) {
+      console.log("App caught an event: " + id);
+      this.$refs.mainMenu.onItemSelected(id);
     }
   }
 };
@@ -42,7 +48,8 @@ export default {
   justify-content: center;
   align-content: flex-start;
   background: $mainBackgroundColor;
-  & > div {
+  .page {
+    min-height: 100vh;
     display: block;
     padding: 25px 24px 25px;
     @include desktop-and-up {

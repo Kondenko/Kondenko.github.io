@@ -1,5 +1,10 @@
 <template>
-  <div id="introduction">
+  <div :id="id" v-observe-visibility="{
+        callback: visibilityChanged,
+        intersection: {
+          threshold: 0.1
+        }
+      }">
     <img id="avatar" v-bind:src="avatar">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
@@ -19,12 +24,15 @@ import IconButton from "ui/IconButton.vue";
 import Icon from "ui/Icon.vue";
 
 export default {
-  name: "introduction",
+  name: "Introduction",
   components: {
     IconButton,
     Icon
   },
   methods: {
+    visibilityChanged(isVisible, entry) {
+      if (isVisible) this.$emit("isVisible", this.id);
+    },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
       window.location.href = require("assets/cv.pdf");
@@ -35,6 +43,7 @@ export default {
   },
   data() {
     return {
+      id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
       bio: `
       I prototype, design and develop awesome mobile apps. <br> 

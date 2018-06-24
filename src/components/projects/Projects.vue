@@ -1,5 +1,10 @@
 <template>
-<div id="projects">
+<div :id="id" v-observe-visibility="{
+        callback: visibilityChanged,
+        intersection: {
+          threshold: 0.0
+        }
+      }">
     <h1>Projects</h1>
     <vue-tabs>
         <v-tab id="code-projects" title="Code">
@@ -41,8 +46,14 @@ export default {
     CodeProject,
     DesignProject
   },
+  methods: {
+    visibilityChanged(isVisible, entry) {
+      if (isVisible) this.$emit("isVisible", this.id);
+    }
+  },
   data() {
     return {
+      id: "projects",
       devProjects: [
         {
           name: "PocketWaka",

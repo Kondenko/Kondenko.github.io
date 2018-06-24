@@ -1,5 +1,10 @@
 <template>
-    <div id="experience">
+    <div :id="id" v-observe-visibility="{
+        callback: visibilityChanged,
+        intersection: {
+          threshold: 0.1
+        }
+      }">
         <h1>Exeperience</h1>
         <exp-item 
         v-for="(item, i) in items" 
@@ -22,8 +27,14 @@ export default {
   components: {
     ExpItem
   },
+  methods: {
+    visibilityChanged(isVisible, entry) {
+      if (isVisible) this.$emit("isVisible", this.id);
+    }
+  },
   data() {
     return {
+      id: "experience",
       items: [
         {
           year: 2018,
@@ -36,7 +47,7 @@ export default {
           Although I decided to step away from my idea, 
           I improved my soft skills and got to know what does it mean to be a founder.
           `,
-          emoji: require('assets/emoji/rocket.png')
+          emoji: require("assets/emoji/rocket.png")
         },
         {
           year: 2017,
@@ -47,7 +58,7 @@ export default {
           I completed it successfully and learned a lot about working with media, video processing and what's most important 
           — I learned  to communicate with clients, meet deadlines and make sure everyone is satisfied. 
           `,
-          emoji: require('assets/emoji/handshake.png'),
+          emoji: require("assets/emoji/handshake.png"),
           emojiOnRight: true
         },
         {
@@ -67,7 +78,7 @@ export default {
           <br> 
           We also had a hackathon where my team built an app in 8 hours and took the 1st place.
           `,
-          emoji: require('assets/emoji/hat.png')
+          emoji: require("assets/emoji/hat.png")
         }
       ]
     };
@@ -80,5 +91,4 @@ h1 {
   align-self: flex-start;
   margin-bottom: 40px;
 }
-
 </style>

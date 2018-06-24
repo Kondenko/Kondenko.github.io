@@ -1,10 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+if (typeof window !== 'undefined') {
+  require('intersection-observer');
+}
 
 var isProd = process.env.NODE_ENV === 'production'
 
-var title = "Vladimir Kondenko // Designer + Developer"
+var title = "Vladimir Kondenko / Designer + Developer"
 var htmlTemplate = "./src/index.html"
 
 var resLoader = {

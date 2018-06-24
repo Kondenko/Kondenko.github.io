@@ -1,13 +1,12 @@
 <template>
-    <div id="kmenu">
+    <div id="kmenu" >
         <a 
         v-for="(name, id) in items" 
         href="#"
-        :class="[menuId(id) == selectedItem ? selectedClass : '', defaultClass]" 
+        :class="[id == selectedItem ? selectedClass : '', defaultClass]" 
         :id="menuId(id)"
         :key="id.content" 
         v-scroll-to="`#${id}`"
-        @click="onItemClick"
         >{{ name }}</a>
     </div>
 </template>
@@ -21,17 +20,18 @@ export default {
   data: function() {
     return {
       selectedItem: undefined,
-      defaultClass: 'item',
-      selectedClass: 'selected'
-    }
+      defaultClass: "item",
+      selectedClass: "selected"
+    };
   },
   methods: {
-    onItemClick: function(event) {
-      this.selectedItem = event.target.id
+    onItemSelected: function(id) {
+      console.log("Item selected: " + id)
+      this.selectedItem = id;
     },
     menuId: function(id) {
-      return `menu-item-${id}`;
-    }
+      return `menu-item-${id}'                                                                                                                                                                                                                                                                                                                                                                                                                                                     -item-${id}`;
+    },
   }
 };
 </script>
@@ -42,7 +42,7 @@ export default {
   right: 0;
   top: 0;
   z-index: 100;
-  height: 20px;
+  height: 60px;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -50,7 +50,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: $menuBackgroundColor;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 
   .item {
     width: 96px;
