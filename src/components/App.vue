@@ -25,6 +25,7 @@ export default {
     const itemsMap = new Map()
     itemsMap['aboutMe'] = "About me"
     itemsMap['projects'] = "Projects"
+    itemsMap['experience'] = "Experience"
     return {
       menuItems: itemsMap
     }
