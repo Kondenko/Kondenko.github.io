@@ -2,7 +2,7 @@
   <div :id="id" v-observe-visibility="{
         callback: visibilityChanged,
         intersection: {
-          threshold: 0.1
+          threshold: 0.9
         }
       }">
     <img id="avatar" v-bind:src="avatar">

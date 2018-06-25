@@ -2,10 +2,9 @@
 <div :id="id" v-observe-visibility="{
         callback: visibilityChanged,
         intersection: {
-          threshold: 0.0
+          threshold: 0.1
         }
       }">
-    <h1>Projects</h1>
     <vue-tabs>
         <v-tab id="code-projects" title="Code">
             <code-project 

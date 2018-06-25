@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     onItemSelected: function(id) {
-      console.log("Item selected: " + id)
       this.selectedItem = id;
     },
     menuId: function(id) {
@@ -50,7 +49,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: $menuBackgroundColor;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
 
   .item {
     width: 96px;

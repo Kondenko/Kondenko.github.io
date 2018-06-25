@@ -5,7 +5,6 @@
           threshold: 0.1
         }
       }">
-        <h1>Exeperience</h1>
         <exp-item 
         v-for="(item, i) in items" 
         :key="item.content" 

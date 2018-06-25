@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     onVisibilityChange: function(id) {
-      console.log("App caught an event: " + id);
       this.$refs.mainMenu.onItemSelected(id);
     }
   }
