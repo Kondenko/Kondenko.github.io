@@ -1,6 +1,5 @@
 <template>
   <div :id="id">
-    <img id="avatar" v-bind:src="avatar">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
     <p class="body" id="bio" v-html="bio"></p>
@@ -56,7 +55,6 @@ export default {
       I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
       `,
       channelLink: "http://t.me/aboutmobile",
-      avatar: require("assets/img_avatar.png"),
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
         {
@@ -102,15 +100,6 @@ h1 {
   max-width: 85%;
   margin: 0 auto;
   margin-top: 25px;
-}
-
-$avatarSize: 125px;
-#avatar {
-  align-self: center;
-  flex-shrink: 1;
-  height: $avatarSize;
-  width: $avatarSize;
-  margin: 0px 0px 50px 0px;
 }
 
 #bio {

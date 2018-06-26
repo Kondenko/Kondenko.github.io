@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~flickity/css/flickity.css";
 
 #CodeProject {
@@ -88,9 +88,8 @@ export default {
 }
 
 .header {
-  @include mobile-only { 
-    order: 0;
-  }
+align-self: flex-start;
+
 }
 
 .desc-text {
@@ -125,7 +124,6 @@ $heightScreenshot: 450px;
   width: 40%;
   height: $heightScreenshot;
   @include mobile-only {
-    order: 1;
     width: 100%;
     margin: 10% 4%;
   }

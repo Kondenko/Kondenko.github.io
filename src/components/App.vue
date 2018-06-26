@@ -51,8 +51,14 @@ export default {
     min-height: 100vh;
     display: block;
     padding: 25px 24px 25px;
+    // border-bottom: 2px solid $pageDividerColor;
     @include desktop-and-up {
       padding: 25px 50px 25px;
+    }
+  }
+  #introduction {
+    @include mobile-only {
+      margin-top: 100px;
     }
   }
 }
