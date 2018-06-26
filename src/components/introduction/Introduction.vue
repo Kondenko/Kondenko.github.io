@@ -17,6 +17,7 @@
 <script>
 import IconButton from "ui/IconButton.vue";
 import Icon from "ui/Icon.vue";
+const utils = require("src/utils.js");
 
 export default {
   name: "Introduction",
@@ -26,8 +27,7 @@ export default {
   },
   methods: {
     onScroll() {
-      const utils = require("src/utils.js");
-      utils.emitIfIsVisible(this, this.id)
+      utils.emitIfIsVisible(this, this.id);
     },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
@@ -36,6 +36,9 @@ export default {
     onChannelClicked() {
       this.$ga.event("click", "link", this.channelLink);
     }
+  },
+  mounted: function() {
+    utils.emitIfIsVisible(this, this.id);
   },
   beforeMount() {
     window.addEventListener("scroll", this.onScroll);
