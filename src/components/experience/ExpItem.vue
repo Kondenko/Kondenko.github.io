@@ -38,6 +38,7 @@ $emojiSize: 60px;
 $emojiColumnWidth: $emojiSize + 90px * 2;
 
 .exp-item {
+  max-width: 100vw;
   min-height: 100px;
   margin: 0 auto;
   display: grid;
@@ -46,8 +47,7 @@ $emojiColumnWidth: $emojiSize + 90px * 2;
   @include tablet-portrait-and-below {
     grid-template-columns: [emoji-left] $emojiColumnWidth / 2 [text] auto [emoji-right] $emojiColumnWidth / 2;
   }
-  @include mobile-portrait-and-below {
-    max-width: 100vw;
+  @include mobile-only {
     grid-template-columns: [emoji-left] 0 [text] 90vw [emoji-right] 0;
   }
 }

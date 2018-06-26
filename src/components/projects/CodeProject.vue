@@ -1,7 +1,7 @@
 <template>
     <div id="CodeProject">
         <div class="desc-block">
-            <h2>{{ name }}</h2>
+            <h2 class="header">{{ name }}</h2>
             <p class="desc-text body" v-html="desc"></p>
             <h3 class="tech-title" >Technologies</h3>
             <div class="tech-chips">
@@ -87,6 +87,12 @@ export default {
   }
 }
 
+.header {
+  @include mobile-only { 
+    order: 0;
+  }
+}
+
 .desc-text {
   max-width: 500px;
   line-height: 35px;
@@ -119,6 +125,7 @@ $heightScreenshot: 450px;
   width: 40%;
   height: $heightScreenshot;
   @include mobile-only {
+    order: 1;
     width: 100%;
     margin: 10% 4%;
   }

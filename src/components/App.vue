@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <introduction></introduction>
-    <projects id="projects"></projects>
-    <experience id="experience"></experience>
+    <k-menu ref="mainMenu" :items="menuItems"></k-menu>
+    <introduction class="page" @isVisible="onVisibilityChange"></introduction>
+    <projects class="page" @isVisible="onVisibilityChange"></projects>
+    <experience class="page" @isVisible="onVisibilityChange"></experience>
   </div>
 </template>
 
 <script>
+import KMenu from "./menu/KMenu.vue";
 import Introduction from "./introduction/Introduction.vue";
 import Projects from "./projects/Projects.vue";
 import Experience from "./experience/Experience.vue";
@@ -14,9 +16,24 @@ import Experience from "./experience/Experience.vue";
 export default {
   name: "app",
   components: {
+    KMenu,
     Introduction,
     Projects,
     Experience
+  },
+  data: function() {
+    const itemsMap = new Map();
+    itemsMap["introduction"] = "About me";
+    itemsMap["projects"] = "Projects";
+    itemsMap["experience"] = "Experience";
+    return {
+      menuItems: itemsMap
+    };
+  },
+  methods: {
+    onVisibilityChange: function(id) {
+      this.$refs.mainMenu.onItemSelected(id);
+    }
   }
 };
 </script>
@@ -30,7 +47,8 @@ export default {
   justify-content: center;
   align-content: flex-start;
   background: $mainBackgroundColor;
-  & > div {
+  .page {
+    min-height: 100vh;
     display: block;
     padding: 25px 24px 25px;
     @include desktop-and-up {

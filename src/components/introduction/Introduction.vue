@@ -1,5 +1,5 @@
 <template>
-  <div id="introduction">
+  <div :id="id">
     <img id="avatar" v-bind:src="avatar">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
@@ -17,14 +17,18 @@
 <script>
 import IconButton from "ui/IconButton.vue";
 import Icon from "ui/Icon.vue";
+const utils = require("src/utils.js");
 
 export default {
-  name: "introduction",
+  name: "Introduction",
   components: {
     IconButton,
     Icon
   },
   methods: {
+    onScroll() {
+      utils.emitIfIsVisible(this, this.id);
+    },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
       window.location.href = require("assets/cv.pdf");
@@ -33,8 +37,18 @@ export default {
       this.$ga.event("click", "link", this.channelLink);
     }
   },
+  mounted: function() {
+    utils.emitIfIsVisible(this, this.id);
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
   data() {
     return {
+      id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
       bio: `
       I prototype, design and develop awesome mobile apps. <br> 
@@ -80,7 +94,6 @@ h1 {
   @include desktop-and-up {
     height: 74vh;
   }
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
