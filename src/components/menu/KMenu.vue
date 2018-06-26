@@ -49,7 +49,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: $menuBackgroundColor;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 
   .item {
     width: 96px;

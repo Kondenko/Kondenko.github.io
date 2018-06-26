@@ -1,10 +1,5 @@
 <template>
-  <div :id="id" v-observe-visibility="{
-        callback: visibilityChanged,
-        intersection: {
-          threshold: 0.9
-        }
-      }">
+  <div :id="id">
     <img id="avatar" v-bind:src="avatar">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
@@ -30,8 +25,9 @@ export default {
     Icon
   },
   methods: {
-    visibilityChanged(isVisible, entry) {
-      if (isVisible) this.$emit("isVisible", this.id);
+    onScroll() {
+      const utils = require("src/utils.js");
+      utils.emitIfIsVisible(this, this.id)
     },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
@@ -40,6 +36,12 @@ export default {
     onChannelClicked() {
       this.$ga.event("click", "link", this.channelLink);
     }
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   },
   data() {
     return {

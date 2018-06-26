@@ -1,9 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-if (typeof window !== 'undefined') {
-  require('intersection-observer');
-}
 
 var isProd = process.env.NODE_ENV === 'production'
 
@@ -108,6 +105,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      src: path.resolve(__dirname, 'src'),
       assets: path.resolve(__dirname, 'src/assets'),
       ic: path.resolve(__dirname, 'src/assets/icons'),
       ui: path.resolve(__dirname, 'src/components/ui/'),

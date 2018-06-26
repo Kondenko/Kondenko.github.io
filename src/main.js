@@ -3,8 +3,6 @@ import App from './components/App.vue'
 import VModal from "vue-js-modal";
 import VueAnalytics from 'vue-analytics'
 import VueScrollTo from 'vue-scrollto'
-import VueObserveVisibility from 'vue-observe-visibility'
-
 
 Vue.use(VModal, { dynamic: true });
 Vue.use(VueAnalytics, {
@@ -14,7 +12,6 @@ Vue.use(VueAnalytics, {
   }
 });
 Vue.use(VueScrollTo)
-Vue.use(VueObserveVisibility)
 
 new Vue({
   el: "#app",

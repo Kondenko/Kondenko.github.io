@@ -1,10 +1,5 @@
 <template>
-    <div :id="id" v-observe-visibility="{
-        callback: visibilityChanged,
-        intersection: {
-          threshold: 0.1
-        }
-      }">
+    <div :id="id">
         <exp-item 
         v-for="(item, i) in items" 
         :key="item.content" 
@@ -27,6 +22,10 @@ export default {
     ExpItem
   },
   methods: {
+    onScroll() {
+      const utils = require("src/utils.js");
+      utils.emitIfIsVisible(this, this.id);
+    },
     visibilityChanged(isVisible, entry) {
       if (isVisible) this.$emit("isVisible", this.id);
     }
@@ -81,6 +80,12 @@ export default {
         }
       ]
     };
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   }
 };
 </script>

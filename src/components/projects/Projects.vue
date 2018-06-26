@@ -1,10 +1,5 @@
 <template>
-<div :id="id" v-observe-visibility="{
-        callback: visibilityChanged,
-        intersection: {
-          threshold: 0.1
-        }
-      }">
+<div :id="id">
     <vue-tabs>
         <v-tab id="code-projects" title="Code">
             <code-project 
@@ -46,6 +41,10 @@ export default {
     DesignProject
   },
   methods: {
+    onScroll() {
+      const utils = require("src/utils.js");
+      utils.emitIfIsVisible(this, this.id);
+    },
     visibilityChanged(isVisible, entry) {
       if (isVisible) this.$emit("isVisible", this.id);
     }
@@ -140,6 +139,12 @@ export default {
         }
       ]
     };
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   }
 };
 </script>
