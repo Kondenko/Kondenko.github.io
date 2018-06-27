@@ -1,6 +1,5 @@
 <template>
-  <div id="introduction">
-    <img id="avatar" v-bind:src="avatar">
+  <div :id="id">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
     <p class="body" id="bio" v-html="bio"></p>
@@ -17,14 +16,18 @@
 <script>
 import IconButton from "ui/IconButton.vue";
 import Icon from "ui/Icon.vue";
+const utils = require("src/utils.js");
 
 export default {
-  name: "introduction",
+  name: "Introduction",
   components: {
     IconButton,
     Icon
   },
   methods: {
+    onScroll() {
+      utils.emitIfIsVisible(this, this.id);
+    },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
       window.location.href = require("assets/cv.pdf");
@@ -33,8 +36,18 @@ export default {
       this.$ga.event("click", "link", this.channelLink);
     }
   },
+  mounted: function() {
+    utils.emitIfIsVisible(this, this.id);
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
   data() {
     return {
+      id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
       bio: `
       I prototype, design and develop awesome mobile apps. <br> 
@@ -42,7 +55,6 @@ export default {
       I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
       `,
       channelLink: "http://t.me/aboutmobile",
-      avatar: require("assets/img_avatar.png"),
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
         {
@@ -72,37 +84,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  color: $accentColor;
-}
-
 #introduction {
   @include desktop-and-up {
     height: 74vh;
   }
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: stretch;
   justify-content: center;
-  max-width: 85%;
-  margin: 0 auto;
-  margin-top: 25px;
 }
 
-$avatarSize: 125px;
-#avatar {
-  align-self: center;
-  flex-shrink: 1;
-  height: $avatarSize;
-  width: $avatarSize;
-  margin: 0px 0px 50px 0px;
+h1 {
+  margin-bottom: 10px;
 }
 
 #bio {
   align-self: flex-start;
-  margin: 28px 0px;
+  margin: 0 0 6%;
 }
 
 #buttons {

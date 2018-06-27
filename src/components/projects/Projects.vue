@@ -1,6 +1,5 @@
 <template>
-<div id="projects">
-    <h1>Projects</h1>
+<div :id="id">
     <vue-tabs>
         <v-tab id="code-projects" title="Code">
             <code-project 
@@ -41,8 +40,18 @@ export default {
     CodeProject,
     DesignProject
   },
+  methods: {
+    onScroll() {
+      const utils = require("src/utils.js");
+      utils.emitIfIsVisible(this, this.id);
+    },
+    visibilityChanged(isVisible, entry) {
+      if (isVisible) this.$emit("isVisible", this.id);
+    }
+  },
   data() {
     return {
+      id: "projects",
       devProjects: [
         {
           name: "PocketWaka",
@@ -130,6 +139,12 @@ export default {
         }
       ]
     };
+  },
+  beforeMount() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   }
 };
 </script>

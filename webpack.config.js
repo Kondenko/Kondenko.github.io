@@ -1,10 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
-var title = "Vladimir Kondenko // Designer + Developer"
+var title = "Vladimir Kondenko / Designer + Developer"
 var htmlTemplate = "./src/index.html"
 
 var resLoader = {
@@ -105,6 +105,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      src: path.resolve(__dirname, 'src'),
       assets: path.resolve(__dirname, 'src/assets'),
       ic: path.resolve(__dirname, 'src/assets/icons'),
       ui: path.resolve(__dirname, 'src/components/ui/'),

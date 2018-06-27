@@ -50,23 +50,22 @@ export default {
 <style lang="scss">
 $sizeDesktop: 225px;
 $sizeMobile: 268px;
-$animDuration: 0.2s;
 #DesignProject {
   position: relative;
   width: $sizeDesktop;
   height: $sizeDesktop;
+  @include mobile-only {
+    width: $sizeMobile;
+    height: $sizeMobile;
+  }
   max-width: 100%;
   margin: 10px;
   padding: 16px;
   cursor: pointer;
   box-shadow: none;
-  transition: box-shadow $animDuration ease-out;
-  @include mobile-only {
-    width: $sizeMobile;
-    height: $sizeMobile;
-  }
+  transition: box-shadow 0.2s ease-out;
   &:hover {
-    box-shadow: 0 4px 16px rgba($color: $blackColor, $alpha: 0.5);
+    box-shadow: 0 12px 30px rgba($color: $blackColor, $alpha: 0.4);
   }
   & > * {
     position: absolute;

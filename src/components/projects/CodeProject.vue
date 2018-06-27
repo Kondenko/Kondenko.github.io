@@ -1,7 +1,7 @@
 <template>
     <div id="CodeProject">
         <div class="desc-block">
-            <h2>{{ name }}</h2>
+            <h2 class="header">{{ name }}</h2>
             <p class="desc-text body" v-html="desc"></p>
             <h3 class="tech-title" >Technologies</h3>
             <div class="tech-chips">
@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~flickity/css/flickity.css";
 
 #CodeProject {
@@ -85,6 +85,11 @@ export default {
   @include mobile-only {
     width: 100%;
   }
+}
+
+.header {
+align-self: flex-start;
+
 }
 
 .desc-text {
