@@ -4,7 +4,8 @@
     <introduction class="page" @isVisible="onVisibilityChange"></introduction>
     <projects class="page" @isVisible="onVisibilityChange"></projects>
     <experience class="page" @isVisible="onVisibilityChange"></experience>
-  </div>
+    <p class="caption footer"> {{ copyright }}</p>
+  </div> 
 </template>
 
 <script>
@@ -27,7 +28,8 @@ export default {
     itemsMap["projects"] = "Projects";
     itemsMap["experience"] = "Experience";
     return {
-      menuItems: itemsMap
+      menuItems: itemsMap,
+      copyright: `Copyright © ${new Date().getFullYear()} Vladimir Kondenko`
     };
   },
   methods: {
@@ -51,7 +53,7 @@ export default {
     min-height: 100vh;
     display: block;
     padding: 25px 24px 25px;
-    // border-bottom: 2px solid $pageDividerColor;
+    border-bottom: 2px solid $pageDividerColor;
     @include desktop-and-up {
       padding: 25px 50px 25px;
     }
@@ -109,6 +111,20 @@ h3 {
   &:hover {
     opacity: $hoverOpacity;
   }
+}
+
+.caption {
+  @extend .body;
+  font-family: $font-hind-madurai;
+  color: $textPrimaryColor;
+  font-size: 14px;
+}
+
+.footer {
+  opacity: 0.5;
+  padding: 14px 0;
+  text-align: center;
+  margin: 0 auto;
 }
 
 #avatar {
