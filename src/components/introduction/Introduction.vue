@@ -84,10 +84,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  color: $accentColor;
-}
-
 #introduction {
   @include desktop-and-up {
     height: 74vh;
@@ -97,14 +93,15 @@ h1 {
   align-items: center;
   align-content: stretch;
   justify-content: center;
-  max-width: 85%;
-  margin: 0 auto;
-  margin-top: 25px;
+}
+
+h1 {
+  margin-bottom: 10px;
 }
 
 #bio {
   align-self: flex-start;
-  margin: 28px 0px;
+  margin: 0 0 6%;
 }
 
 #buttons {

@@ -60,7 +60,7 @@ export default {
   }
   #introduction {
     @include mobile-only {
-      margin-top: 100px;
+      margin-top: 40px;
     }
   }
 }
@@ -107,6 +107,7 @@ h3 {
   text-decoration: underline;
   text-decoration-style: unset;
   text-decoration-line: underline;
+  cursor: pointer;
   color: $accentColor;
   &:hover {
     opacity: $hoverOpacity;
