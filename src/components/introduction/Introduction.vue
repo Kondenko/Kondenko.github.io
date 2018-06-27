@@ -2,7 +2,11 @@
   <div :id="id">
     <div id="text">
     <h1 id="greeting">{{ greeting }}</h1>
-    <p class="body" id="bio" v-html="bio"></p>
+    <p class="body" id="bio">
+        I prototype, design and develop awesome mobile apps. <br> 
+      I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
+      I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
+    </p>
     <div id="buttons">
       <icon-button id="resume-button" :icon="icDownload" text="Resume" v-on:click.native="downloadResume"></icon-button>
       <div id="social-buttons">
@@ -49,12 +53,7 @@ export default {
     return {
       id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
-      bio: `
-      I prototype, design and develop awesome mobile apps. <br> 
-      I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
-      I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
-      `,
-      channelLink: "http://t.me/aboutmobile",
+      channelLink: "https://tlgrm.ru/channels/@aboutmobile",
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
         {
