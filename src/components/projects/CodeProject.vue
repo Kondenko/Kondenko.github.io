@@ -1,22 +1,24 @@
 <template>
     <div id="CodeProject">
         <div class="desc-block">
-            <h2 class="header">{{ name }}</h2>
+              <h2 class="header">{{ name }}</h2>
             <p class="desc-text body" v-html="desc"></p>
             <h3 class="tech-title" >Technologies</h3>
             <div class="tech-chips">
               <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
             </div>
-            <a id="button-github" class="button-link" :href="githubLink" target="_blank">
-              <icon-button :icon="icGithub" text="Source code" v-on:click.native="onGithubClicked"></icon-button>
-            </a>  
+            <div class="buttons-block">
+              <play-store-badge v-if="playStoreLink" class="badge" :url="playStoreLink"></play-store-badge>
+              <a id="button-github" class="button-link" :href="githubLink" target="_blank">
+                <icon-button :icon="icGithub" text="Source code" v-on:click.native="onGithubClicked"></icon-button>
+              </a>  
+            </div>
         </div>
         <div
           v-if="screenshots"
           ref="flickity"
           class="flickity screenshots-block" 
-          data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }' 
-          >
+          data-flickity='{ "imagesLoaded": true, "pageDots": false, "wrapAround": true }'>
              <div class="screenshot-container" v-for="s in screenshots" :key="s">
               <img class="screenshot" :src="s"/>
             </div>
@@ -27,6 +29,7 @@
 <script>
 import TechChip from "./TechChip.vue";
 import IconButton from "ui/IconButton.vue";
+import PlayStoreBadge from "ui/PlayStoreBadge.vue";
 import Flickity from "flickity-imagesloaded";
 
 export default {
@@ -36,20 +39,23 @@ export default {
     desc: String,
     technologies: Array,
     githubLink: String,
+    playStoreLink: String,
     screenshots: Array
   },
   components: {
+    Flickity,
     TechChip,
+    PlayStoreBadge,
     IconButton
   },
   methods: {
     onGithubClicked() {
-      this.$ga.event('click', 'projectSource', this.githubLink)
+      this.$ga.event("click", "projectSource", this.githubLink);
     }
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg"),
+      icGithub: require("assets/icons/ic_github_light.svg")
     };
   }
 };
@@ -85,36 +91,54 @@ export default {
   @include mobile-only {
     width: 100%;
   }
-}
 
-.header {
-align-self: flex-start;
+  .header {
+    align-self: flex-start;
+  }
 
-}
+  .desc-text {
+    max-width: 500px;
+    line-height: 35px;
+  }
 
-.desc-text {
-  max-width: 500px;
-  line-height: 35px;
-}
+  .tech-title {
+    height: 44px;
+  }
 
-.tech-title {
-  height: 44px;
-}
+  .tech-chips {
+    margin-bottom: auto;
+    margin-left: -8px;
+  }
 
-.tech-chips {
-  margin-bottom: auto;
-  margin-left: -8px;
-}
+  .button-link {
+    text-decoration: none;
+  }
 
-.button-link {
-  text-decoration: none;
-}
+  .buttons-block {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
 
-#button-github {
-  margin-top: 8%;
-  @include mobile-only {
-    margin-top: 5%;
-    align-self: center;
+    margin-top: 8%;
+    @include mobile-only {
+      flex-direction: column;
+      margin-top: 5%;
+      align-self: center;
+    }
+
+    #button-github {
+      margin-bottom: 1%;
+    }
+
+    .badge {
+      @include tablet-portrait-and-up {
+        margin-right: 20px;
+      }
+      margin-left: 0px;
+    }
   }
 }
 

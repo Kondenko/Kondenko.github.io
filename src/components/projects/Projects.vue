@@ -8,7 +8,8 @@
              :name="p.name"
              :desc="p.desc"
              :technologies="p.technologies"
-             :githubLink="p.githubLink"
+             :github-link="p.githubLink"
+             :play-store-link="p.playStoreLink"
              :screenshots="p.screenshots"
              ></code-project>
         </v-tab>
@@ -62,6 +63,7 @@ export default {
           `,
           technologies: ["Wakatime API", "(Rx)Kotlin", "Dagger 2", "Retrofit"],
           githubLink: "https://github.com/Kondenko/pocketwaka",
+          playStoreLink: "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
             require("assets/projects/dev/pocketwaka/1.png"),
             require("assets/projects/dev/pocketwaka/2.png")
