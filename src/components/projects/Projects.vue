@@ -65,8 +65,8 @@ export default {
           githubLink: "https://github.com/Kondenko/pocketwaka",
           playStoreLink: "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
-            require("assets/projects/dev/pocketwaka/1.png"),
-            require("assets/projects/dev/pocketwaka/2.png")
+            "https://lh3.googleusercontent.com/0Qpo05Z3RHDu8CzieVPrTLMfyBhRs_W_m-c1OQgrfO5l3iEbpbv9gvwptFhQVOPiGKY=w1311-h644-rw",
+            "https://lh3.googleusercontent.com/1iDVxxPa6Jf4112bvTjDuSRR7dFp9UbCugTyfS5UyBPT5bUxz-WzekJqkpBEEO-O9A=w1311-h644-rw"
           ]
         },
         {
@@ -88,10 +88,11 @@ export default {
             "MockWebServer",
             "Espresso"
           ],
+          playStoreLink: "https://play.google.com/store/apps/details?id=com.vladimirkondenko.yamblz",
           githubLink: "https://github.com/Kondenko/yandex-translate-client",
           screenshots: [
-            require("assets/projects/dev/yandex-translate/1.png"),
-            require("assets/projects/dev/yandex-translate/2.png")
+            "https://lh3.googleusercontent.com/8jdhOL_PxwZa_8ZnJARvsTGiQKPtkUytGL1woWn2w6juqCnJKx8NrBmBZZN2C89FAgN8=w1311-h644-rw",
+            "https://lh3.googleusercontent.com/UG460z_yFe0OV3gO6D0Gv-6UYICeuW4FWSEROYSETGC1_MMkzoMZ2OHl6wIWMusmVpAX=w1311-h644-rw"
           ]
         }
       ],

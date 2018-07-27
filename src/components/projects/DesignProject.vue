@@ -5,6 +5,7 @@
            <div class="title">{{ title }}</div>
            <div class="subtitle">{{ subtitle }}</div>
         </div> 
+        <img v-if="link" class="external-link-icon" :src="externalLinkIcon"/>
     </div>
 </template>
 
@@ -17,11 +18,16 @@ export default {
     background: String,
     link: String
   },
+  data: function() {
+    return {
+      externalLinkIcon: require("ic/ic_link_external.svg")
+    };
+  },
   methods: {
     openProject: function(event) {
       if (this.link) {
         this.$ga.event("click", "designProjectLink", this.title);
-        window.location.href = this.link;
+        window.open(this.link, "_blank");
       } else {
         this.$ga.event("click", "designProjectPreview", this.title);
         this.$modal.show(
@@ -52,6 +58,7 @@ $sizeDesktop: 225px;
 $sizeMobile: 268px;
 #DesignProject {
   position: relative;
+  display: inline-block;
   width: $sizeDesktop;
   height: $sizeDesktop;
   @include mobile-only {
@@ -67,7 +74,7 @@ $sizeMobile: 268px;
   &:hover {
     box-shadow: 0 12px 30px rgba($color: $blackColor, $alpha: 0.4);
   }
-  & > * {
+  & > .background, .text {
     position: absolute;
     left: 0;
     top: 0;
@@ -87,6 +94,16 @@ $sizeMobile: 268px;
     @include mobile-only {
       width: 100vw;
     }
+  }
+
+  $iconSize: 24px;
+  $margin: 14px;
+  .external-link-icon {
+    width: $iconSize;
+    height: $iconSize;
+    position: absolute;
+    top: $margin;
+    right: $margin;
   }
 
   .text {
