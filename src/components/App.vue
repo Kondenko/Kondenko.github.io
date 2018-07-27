@@ -4,7 +4,7 @@
     <introduction class="page" @isVisible="onVisibilityChange"></introduction>
     <projects class="page" @isVisible="onVisibilityChange"></projects>
     <experience class="page" @isVisible="onVisibilityChange"></experience>
-    <p class="caption footer"> {{ copyright }}</p>
+    <p class="caption footer" v-html="copyright"></p>
   </div> 
 </template>
 
@@ -29,7 +29,11 @@ export default {
     itemsMap["experience"] = "Experience";
     return {
       menuItems: itemsMap,
-      copyright: `Copyright © ${new Date().getFullYear()} Vladimir Kondenko`
+      copyright: 
+      `
+      Copyright © ${new Date().getFullYear()} Vladimir Kondenko
+      <br> Made with ❤ and Vue.js
+      `
     };
   },
   methods: {
@@ -122,7 +126,7 @@ h3 {
 }
 
 .footer {
-  opacity: 0.5;
+  opacity: 0.7;
   padding: 14px 0;
   text-align: center;
   margin: 0 auto;
