@@ -88,6 +88,7 @@ export default {
             "MockWebServer",
             "Espresso"
           ],
+          playStoreLink: "https://play.google.com/store/apps/details?id=com.vladimirkondenko.yamblz",
           githubLink: "https://github.com/Kondenko/yandex-translate-client",
           screenshots: [
             require("assets/projects/dev/yandex-translate/1.png"),
