@@ -20,7 +20,7 @@
 <script>
 import IconButton from "ui/IconButton.vue";
 import Icon from "ui/Icon.vue";
-const utils = require("src/utils.js");
+const utils = require("src/utils.js").default;
 
 export default {
   name: "Introduction",
@@ -34,7 +34,7 @@ export default {
     },
     downloadResume: function(event) {
       this.$ga.event("click", "resume");
-      window.location.href = require("assets/cv.pdf");
+      window.location.href = require("assets/cv.pdf").default;
     },
     onChannelClicked() {
       this.$ga.event("click", "link", this.channelLink);
@@ -54,26 +54,26 @@ export default {
       id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
       channelLink: "https://tlgrm.ru/channels/@aboutmobile",
-      icDownload: require("ic/ic_download.svg"),
+      icDownload: require("ic/ic_download.svg").default,
       socialButtons: [
         {
-          icon: require("ic/ic_mail.svg"),
+          icon: require("ic/ic_mail.svg").default,
           link: "mailto:kondenko2011@gmail.com"
         },
         {
-          icon: require("ic/ic_facebook.svg"),
+          icon: require("ic/ic_facebook.svg").default,
           link: "https://www.facebook.com/v.kondenko"
         },
         {
-          icon: require("ic/ic_twitter.svg"),
+          icon: require("ic/ic_twitter.svg").default,
           link: "https://twitter.com/v_kondenko"
         },
         {
-          icon: require("ic/ic_telegram.svg"),
+          icon: require("ic/ic_telegram.svg").default,
           link: "https://www.t.me/kondenko"
         },
         {
-          icon: require("ic/ic_github.svg"),
+          icon: require("ic/ic_github.svg").default,
           link: "https://www.github.com/Kondenko"
         }
       ]

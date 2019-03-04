@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     onScroll() {
-      const utils = require("src/utils.js");
+      const utils = require("src/utils.js").default;
       utils.emitIfIsVisible(this, this.id);
     },
     visibilityChanged(isVisible, entry) {
@@ -100,44 +100,44 @@ export default {
         {
           title: "Steaky",
           subtitle: "Russian Design Cup 2016",
-          background: require("assets/projects/design/steaky.png"),
+          background: require("assets/projects/design/steaky.png").default,
           link: "https://russiandesigncup.ru/solution/1321/"
         },
         {
           title: "Google Play Music redesign",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/gpm.png"),
+          background: require("assets/projects/design/gpm.png").default,
           link:
             "https://www.uplabs.com/posts/google-play-music-redesign-interface"
         },
         {
           title: "E-commerce store",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/e-commerce-store.png"),
+          background: require("assets/projects/design/e-commerce-store.png").default,
           link: "https://www.uplabs.com/posts/e-commerce-tech-shop-dailyui-012"
         },
         {
           title: "Dribbble profile",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/dribbble-profile.png"),
+          background: require("assets/projects/design/dribbble-profile.png").default,
           link: "https://www.uplabs.com/posts/dark-dribbble-profile"
         },
         {
           title: "Email receipt",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/email-receipt.png"),
+          background: require("assets/projects/design/email-receipt.png").default,
           link: ""
         },
         {
           title: "Leaderboard",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/leaderboard.png"),
+          background: require("assets/projects/design/leaderboard.png").default,
           link: ""
         },
         {
           title: "Settings",
           subtitle: "DailyUI",
-          background: require("assets/projects/design/settings.png"),
+          background: require("assets/projects/design/settings.png").default,
           link: ""
         }
       ]

@@ -20,7 +20,7 @@ export default {
   },
   data: function() {
     return {
-      externalLinkIcon: require("ic/ic_link_external.svg")
+      externalLinkIcon: require("ic/ic_link_external.svg").default
     };
   },
   methods: {
