@@ -92,14 +92,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.s[a|c]ss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      }
     ]
   },
   resolve: {
@@ -147,12 +139,6 @@ if (isProd) {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({
