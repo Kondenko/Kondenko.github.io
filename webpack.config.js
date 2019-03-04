@@ -92,7 +92,7 @@ module.exports = {
         loader: "file-loader"
       }
     ],
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
         loader: 'vue'
