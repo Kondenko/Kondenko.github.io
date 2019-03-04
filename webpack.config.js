@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
@@ -90,16 +91,18 @@ module.exports = {
       {
         test: /\.(pdf)$/,
         loader: "file-loader"
-      }
-    ],
-    rules: [
+      },
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader'
       },
       {
         test: /\.s[a|c]ss$/,
-        loader: 'style!css!sass'
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -130,6 +133,7 @@ module.exports = {
       template: htmlTemplate,
       filename: './index.html' //relative to root of the application
     }),
+    new VueLoaderPlugin()
   ],
   devtool: '#eval-source-map',
 }
