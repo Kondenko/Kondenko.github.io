@@ -67,7 +67,7 @@ module.exports = {
       },
       {
         test: /\.(pdf)$/,
-        loader: "file-loader"
+        loader: "file-loader?name=pdf/[name].[ext]"
       },
       {
         test: /\.vue$/,
