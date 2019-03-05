@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
@@ -49,6 +50,26 @@ module.exports = {
         ],
       },
       {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'name=img/[path][name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.(pdf)$/,
+        loader: "file-loader"
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -71,36 +92,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'name=img/[path][name].[ext]?[hash]'
-        }
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: "file-loader"
-      },
-      {
-        test: /\.(pdf)$/,
-        loader: "file-loader"
-      }
-    ],
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.s[a|c]ss$/,
-        loader: 'style!css!sass'
-      }
     ]
   },
   resolve: {
@@ -130,6 +121,7 @@ module.exports = {
       template: htmlTemplate,
       filename: './index.html' //relative to root of the application
     }),
+    new VueLoaderPlugin()
   ],
   devtool: '#eval-source-map',
 }
@@ -147,12 +139,6 @@ if (isProd) {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({
