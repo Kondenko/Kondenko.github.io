@@ -53,7 +53,7 @@ export default {
     return {
       id: "introduction",
       greeting: "Hi. I'm Vladimir Kondenko.",
-      channelLink: "https://tlgrm.ru/channels/@aboutmobile",
+      channelLink: "https://tele.click/aboutmobile",
       icDownload: require("ic/ic_download.svg"),
       socialButtons: [
         {
