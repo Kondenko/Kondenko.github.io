@@ -5,7 +5,7 @@
     <projects class="page" @isVisible="onVisibilityChange"></projects>
     <experience class="page" @isVisible="onVisibilityChange"></experience>
     <p class="caption footer" v-html="copyright"></p>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -23,10 +23,11 @@ export default {
     Experience
   },
   data: function() {
-    const itemsMap = new Map();
-    itemsMap["introduction"] = "About me";
-    itemsMap["projects"] = "Projects";
-    itemsMap["experience"] = "Experience";
+    const itemsMap = {
+      "introduction": "About me",
+      "projects": "Projects",
+      "experience": "Experience"
+    };
     return {
       menuItems: itemsMap,
       copyright: 
