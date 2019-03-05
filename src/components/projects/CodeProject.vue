@@ -55,7 +55,7 @@ export default {
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg").default
+      icGithub: require("assets/icons/ic_github_light.svg")
     };
   }
 };
