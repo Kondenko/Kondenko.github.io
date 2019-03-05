@@ -15,7 +15,7 @@
 export default {
   name: "kmenu",
   props: {
-    items: Map // id to item name
+    items: Object // map (id to item name)
   },
   data: function() {
     return {
