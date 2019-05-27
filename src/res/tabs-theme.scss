@@ -1,41 +1,40 @@
 @import "~vue-nav-tabs/themes/default/bs_nav_tabs";
 @import "~vue-nav-tabs/themes/default/variables";
 
-$other-medium-gray:          #A49E93 !default;
-$font-color:                 #66615b !default;
-$medium-pale-bg:             #F1EAE0 !default;
+$other-medium-gray: #a49e93 !default;
+$font-color: #66615b !default;
+$medium-pale-bg: #f1eae0 !default;
 
 .vue-tabs {
-
-  &.stacked{
-    display:flex;
+  &.stacked {
+    display: flex;
     flex-direction: row;
   }
 
-  .nav-tabs-navigation{
+  .nav-tabs-navigation {
     text-align: center;
     margin: 30px;
 
-    .nav > li > a{
+    .nav > li > a {
       padding-bottom: 20px;
     }
   }
 
-  .nav-tabs-wrapper{
+  .nav-tabs-wrapper {
     display: inline-block;
     margin-bottom: -6px;
     position: relative;
   }
 
-  .nav-tabs{
+  .nav-tabs {
     border-bottom: 0 none;
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
 
-    > li{
+    > li {
       min-width: 95px;
-      
-      > a{
+
+      > a {
         font-family: $font-hind-madurai;
         font-size: 14px;
         font-style: bold;
@@ -43,26 +42,26 @@ $medium-pale-bg:             #F1EAE0 !default;
         border: 0 none !important;
         color: $textPrimaryColor;
       }
-      > a:hover{
+      > a:hover {
         color: $font-color;
         background-color: transparent;
       }
     }
 
-    > li.active{
+    > li.active {
       color: $textPrimaryColor;
       position: relative;
-      
+
       > a,
       > a:hover,
-      > a:focus{
+      > a:focus {
         color: $textPrimaryColor;
         background-color: transparent;
         border: 0 none;
         //height: 50px;
       }
 
-      a:after{
+      a:after {
         width: 100%;
         height: 2px;
         background-color: $accentColor;
@@ -72,31 +71,30 @@ $medium-pale-bg:             #F1EAE0 !default;
         right: 0;
         bottom: 10px;
       }
-
     }
   }
 
-  .nav-stacked{
+  .nav-stacked {
     border-right: 1px solid $medium-pale-bg;
     font-size: $font-size-base;
     font-weight: $font-weight-bold;
     padding: 20px 0;
 
     > li {
-      > a{
+      > a {
         color: $other-medium-gray;
         padding: 7px 25px;
         text-align: right;
       }
-      > a:hover{
+      > a:hover {
         color: $font-color;
       }
     }
-    > li.active{
-      > a{
+    > li.active {
+      > a {
         color: $font-color;
       }
-      a:after{
+      a:after {
         border-right: 11px solid $white-color;
         border-top: 11px solid rgba(0, 0, 0, 0);
         border-bottom: 11px solid rgba(0, 0, 0, 0);
@@ -107,7 +105,7 @@ $medium-pale-bg:             #F1EAE0 !default;
         bottom: 7px;
       }
 
-      a:before{
+      a:before {
         border-right: 11px solid $medium-pale-bg;
         border-top: 11px solid rgba(0, 0, 0, 0);
         border-bottom: 11px solid rgba(0, 0, 0, 0);
@@ -120,15 +118,14 @@ $medium-pale-bg:             #F1EAE0 !default;
     }
   }
 
-  .left-vertical-tabs{
+  .left-vertical-tabs {
     width: 170px;
     min-width: 170px;
   }
 
-  .right-text-tabs{
+  .right-text-tabs {
     width: calc(100% - 170px);
     float: left;
     padding: 6px 15px;
-
   }
 }
