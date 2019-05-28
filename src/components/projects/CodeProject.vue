@@ -138,12 +138,7 @@ export default {
 
   .buttons-block {
     align-self: flex-start;
-    flex-shrink: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-items: flex-start;
-    justify-content: flex-start;
+    float: left;
     @include mobile-only {
       margin-top: 5%;
       align-self: center;
