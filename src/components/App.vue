@@ -85,6 +85,15 @@ h2 {
 h3 {
   font-family: $font-hind-madurai;
   font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+  font-size: 24px;
+  margin: 0;
+}
+
+.title {
+  font-family: $font-hind-madurai;
+  font-style: bold;
   font-weight: bold;
   line-height: 50px;
   font-size: 14px;
@@ -98,6 +107,16 @@ h3 {
   font-size: 20px;
   line-height: 35px;
   text-align: start;
+}
+
+.body2 {
+  @extend .body;
+  font-size: 18px;
+}
+
+.body3 {
+  @extend .body2;
+  font-size: 14px;
 }
 
 .link {

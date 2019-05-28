@@ -1,12 +1,12 @@
 <template>
   <div id="CodeProject">
     <div class="desc-block">
-      <h2 class="header">{{ name }}</h2>
-      <p class="desc-text body" v-html="desc"></p>
-      <h3 class="tech-title">Technologies</h3>
-      <div class="tech-chips">
-        <tech-chip v-for="t in technologies" :key="t" :text="t"></tech-chip>
-      </div>
+      <h3 class="header">{{ name }}</h3>
+      <p class="desc-text body2" v-html="desc"></p>
+      <label>
+        <span class="title technologies-text">Technologies:</span>
+        <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
+      </label>
       <div class="buttons-block">
         <play-store-badge v-if="playStoreLink" class="badge" :url="playStoreLink"></play-store-badge>
         <a id="button-github" class="button-link" :href="githubLink" target="_blank">
@@ -14,8 +14,8 @@
         </a>
       </div>
     </div>
-    <div class="device-wrapper">
-      <div class="device kludge" data-device="Pixel" data-orientation="portrait" data-color="white">
+    <div class="device-wrapper screenshots-block">
+      <div class="device" data-device="Pixel" data-orientation="portrait" data-color="white">
         <div class="screen" style="pointer-events: all">
           <carousel
             v-if="screenshots"
@@ -81,7 +81,7 @@ export default {
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin: 8% auto;
-  width: 90vw;
+  max-width: 90vw;
   padding: 10px;
   @include desktop-and-up {
     max-height: 70vh;
@@ -113,13 +113,8 @@ export default {
     line-height: 35px;
   }
 
-  .tech-title {
-    height: 44px;
-  }
-
-  .tech-chips {
-    margin-bottom: auto;
-    margin-left: -8px;
+  .technologies-text {
+    line-height: 24px;
   }
 
   .button-link {
@@ -154,28 +149,17 @@ export default {
   }
 }
 
-$heightScreenshot: 450px;
-
 .screenshots-block {
   width: 40%;
-  height: $heightScreenshot;
   @include mobile-only {
     width: 100%;
     margin: 10% 4%;
   }
 }
 
-.screenshot-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.kludge {
+.device {
   .button {
     all: initial; // reverts the button to the state it's defined in the library
   }
-  z-index: 10; // fixes phone mockups not being displayed
 }
-
 </style>
