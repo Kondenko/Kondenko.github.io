@@ -25,6 +25,10 @@
         </a>
       </div>
       <p class="desc-text body2" v-html="desc"></p>
+      <div v-if="quote" class="quote-container">
+        <img class="img-quote" :src="imgQuote">
+        <label class="quote">{{quote}}</label>
+      </div>
       <label>
         <span class="title technologies-text">Keywords:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
@@ -60,6 +64,7 @@ export default {
   props: {
     name: String,
     desc: String,
+    quote: String,
     technologies: Array,
     githubLink: String,
     playStoreLink: String,
@@ -80,6 +85,7 @@ export default {
     return {
       icGithub: require("assets/icons/ic_github_accent.svg"),
       icGooglePlay: require("assets/icons/ic_gplay_accent.svg"),
+      imgQuote: require("assets/img_quote.svg"),
       screenshotsCarousel: this.screenshots.map(
         s => `<img style="width: 100%" src="${s}">`
       )
@@ -149,6 +155,20 @@ export default {
     margin-top: 28px;
     max-width: 500px;
     line-height: 35px;
+  }
+
+  .quote-container {
+    .img-quote {
+      vertical-align: text-top;
+      width: 32px;
+      margin-right: 16px;
+      margin-top: 4px;
+    }
+    padding: 4px 0 22px 0;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: flex-start;
   }
 
   .technologies-text {

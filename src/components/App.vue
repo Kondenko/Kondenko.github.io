@@ -24,14 +24,13 @@ export default {
   },
   data: function() {
     const itemsMap = {
-      "introduction": "About me",
-      "projects": "Projects",
-      "experience": "Experience"
+      introduction: "About me",
+      projects: "Projects",
+      experience: "Experience"
     };
     return {
       menuItems: itemsMap,
-      copyright: 
-      `
+      copyright: `
       Copyright © ${new Date().getFullYear()} Vladimir Kondenko
       <br> Made with ❤ and Vue.js
       `
@@ -119,6 +118,12 @@ h3 {
   font-size: 14px;
 }
 
+.quote {
+  @extend .body;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.54);
+}
 
 .link {
   @extend .body;
