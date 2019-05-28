@@ -93,17 +93,16 @@ export default {
 @import "~html5-device-mockups/dist/device-mockups.css";
 
 #CodeProject {
+  align-self: center;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin: 8% auto;
-  max-width: 90vw;
-  padding: 10px;
-  @include desktop-and-up {
-    max-height: 70vh;
-  }
-  @include mobile-only {
+    width: 58vw;
+  @include tablet-portrait-and-below {
     padding: 0px;
+    width: 100vw;
+    margin: 16px auto;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -116,14 +115,18 @@ export default {
   align-items: flex-start;
   justify-items: self-start;
   justify-content: flex-start;
-  margin: 0 5%;
+  margin: 75px 54px 0;
   @include mobile-only {
-    width: 100%;
+    width: 100vw;
+    margin: 0 16px;
   }
 
   .header {
     align-self: flex-start;
     margin-bottom: 0;
+    @include mobile-only {
+      align-self: center;
+    }
   }
 
   .button-link {
@@ -157,11 +160,17 @@ export default {
   }
 }
 
+.device-wrapper {
+  width: 296px;
+}
+
 .screenshots-block {
-  width: 40%;
   @include mobile-only {
     width: 100%;
     margin: 10% 4%;
+  }
+  @include tablet-portrait-and-below {
+    margin: 32px 8px;
   }
 }
 
@@ -170,4 +179,13 @@ export default {
     all: initial; // reverts the button to the state it's defined in the library
   }
 }
+
+.screenshot-container {
+  height: 100%;
+  margin-right: -2px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #5c5c5c;
+}
+
 </style>
