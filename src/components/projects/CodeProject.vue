@@ -1,6 +1,5 @@
 <template>
   <div id="CodeProject">
-    <link rel="stylesheet" type="text/css" href="dist/device-mockups.min.css">
     <div class="desc-block">
       <h2 class="header">{{ name }}</h2>
       <p class="desc-text body" v-html="desc"></p>
@@ -16,23 +15,15 @@
       </div>
     </div>
     <div class="device-wrapper">
-      <div class="device costyl" data-device="Pixel" data-orientation="portrait" data-color="white">
-        <div class="screen">
-          <div
+      <div class="device kludge" data-device="Pixel" data-orientation="portrait" data-color="white">
+        <div class="screen" style="pointer-events: all">
+          <carousel
             v-if="screenshots"
-            ref="flickity"
-            class="flickity screenshots-block"
-            data-flickity='{ 
-              "imagesLoaded": true,
-              "pageDots": false, 
-              "wrapAround": true,
-              "prevNextButtons": false
-        }'
-          >
-            <div class="screenshot-container" v-for="s in screenshots" :key="s">
-              <img class="screenshot" :src="s">
-            </div>
-          </div>
+            class="screenshot-container"
+            :data="screenshotsCarousel"
+            indicators="hover"
+            :autoplay="false"
+          ></carousel>
         </div>
         <div
           class="button"
@@ -49,7 +40,6 @@
 import TechChip from "./TechChip.vue";
 import IconButton from "ui/IconButton.vue";
 import PlayStoreBadge from "ui/PlayStoreBadge.vue";
-import Flickity from "flickity-imagesloaded";
 
 export default {
   name: "CodeProject",
@@ -62,7 +52,6 @@ export default {
     screenshots: Array
   },
   components: {
-    Flickity,
     TechChip,
     PlayStoreBadge,
     IconButton
@@ -74,7 +63,10 @@ export default {
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg")
+      icGithub: require("assets/icons/ic_github_light.svg"),
+      screenshotsCarousel: this.screenshots.map(
+        s => `<img style="width: 100%" src="${s}">`
+      )
     };
   }
 };
@@ -176,19 +168,14 @@ $heightScreenshot: 450px;
 .screenshot-container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-.screenshot {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-}
-
-.costyl {
+.kludge {
   .button {
-    all: initial;
+    all: initial; // reverts the button to the state it's defined in the library
   }
-  z-index: 10;
+  z-index: 10; // fixes phone mockups not being displayed
 }
+
 </style>
