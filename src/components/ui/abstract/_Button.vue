@@ -15,8 +15,6 @@ export default {
 <style lang="scss">
 $contentColor: $accentColor;
 .button {
-  min-height: 38px;
-  min-width: 120px;
   font-size: 14px;
   text-align: center;
   font-family: $font-hind-madurai;
@@ -25,7 +23,7 @@ $contentColor: $accentColor;
   background-color: $contentColor;
   color: $textPrimaryColorLight;
   border-radius: 90px;
-  padding: 5px 25px 5px 10px;
+  padding: 6px 25px 5px 10px;
   border: none;
   outline: none;
   cursor: pointer;

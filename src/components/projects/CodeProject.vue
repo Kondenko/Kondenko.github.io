@@ -2,17 +2,29 @@
   <div id="CodeProject">
     <div class="desc-block">
       <h3 class="header">{{ name }}</h3>
+      <div class="buttons-block">
+        <a v-if="playStoreLink" :href="githubLink" target="_blank">
+          <simple-icon-button
+            :icon="icGooglePlay"
+            class="button-link"
+            text="Download"
+            v-on:click.native="onPlayStoreClicked"
+          ></simple-icon-button>
+        </a>
+        <a v-if="githubLink" :href="githubLink" target="_blank">
+          <simple-icon-button
+            :icon="icGithub"
+            class="button-link"
+            text="Source code"
+            v-on:click.native="onGithubClicked"
+          ></simple-icon-button>
+        </a>
+      </div>
       <p class="desc-text body2" v-html="desc"></p>
       <label>
         <span class="title technologies-text">Technologies:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
-      <div class="buttons-block">
-        <play-store-badge v-if="playStoreLink" class="badge" :url="playStoreLink"></play-store-badge>
-        <a id="button-github" class="button-link" :href="githubLink" target="_blank">
-          <icon-button :icon="icGithub" text="Source code" v-on:click.native="onGithubClicked"></icon-button>
-        </a>
-      </div>
     </div>
     <div class="device-wrapper screenshots-block">
       <div class="device" data-device="Pixel" data-orientation="portrait" data-color="white">
@@ -38,7 +50,7 @@
 
 <script>
 import TechChip from "./TechChip.vue";
-import IconButton from "ui/IconButton.vue";
+import SimpleIconButton from "ui/SimpleIconButton.vue";
 import PlayStoreBadge from "ui/PlayStoreBadge.vue";
 
 export default {
@@ -54,16 +66,20 @@ export default {
   components: {
     TechChip,
     PlayStoreBadge,
-    IconButton
+    SimpleIconButton
   },
   methods: {
     onGithubClicked() {
       this.$ga.event("click", "projectSource", this.githubLink);
+    },
+    onPlayStoreClicked() {
+      this.$ga.event("click", "projectGooglePlay", this.playStoreLink);
     }
   },
   data: function() {
     return {
-      icGithub: require("assets/icons/ic_github_light.svg"),
+      icGithub: require("assets/icons/ic_github_accent.svg"),
+      icGooglePlay: require("assets/icons/ic_gplay_accent.svg"),
       screenshotsCarousel: this.screenshots.map(
         s => `<img style="width: 100%" src="${s}">`
       )
@@ -98,6 +114,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-items: self-start;
   justify-content: flex-start;
   margin: 0 5%;
   @include mobile-only {
@@ -106,46 +123,37 @@ export default {
 
   .header {
     align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  .button-link {
+    max-height: 16px;
+    padding: 0px;
+    padding-right: 18px;
+  }
+
+  .buttons-block {
+    align-self: flex-start;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-items: flex-start;
+    justify-content: flex-start;
+    @include mobile-only {
+      margin-top: 5%;
+      align-self: center;
+    }
   }
 
   .desc-text {
+    margin-top: 28px;
     max-width: 500px;
     line-height: 35px;
   }
 
   .technologies-text {
     line-height: 24px;
-  }
-
-  .button-link {
-    text-decoration: none;
-  }
-
-  .buttons-block {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 8%;
-    @include mobile-only {
-      flex-direction: column;
-      margin-top: 5%;
-      align-self: center;
-    }
-
-    #button-github {
-      margin-bottom: 1%;
-    }
-
-    .badge {
-      @include tablet-portrait-and-up {
-        margin-right: 20px;
-      }
-      margin-left: 0px;
-    }
   }
 }
 
