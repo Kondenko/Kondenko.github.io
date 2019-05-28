@@ -3,7 +3,11 @@
     <div class="desc-block">
       <h3 class="header">{{ name }}</h3>
       <div class="buttons-block">
-        <a v-if="playStoreLink" :href="githubLink" target="_blank">
+        <a
+          v-if="playStoreLink"
+          :href="playStoreLink + '&utm_source=personal-website'"
+          target="_blank"
+        >
           <simple-icon-button
             :icon="icGooglePlay"
             class="button-link"
@@ -22,7 +26,7 @@
       </div>
       <p class="desc-text body2" v-html="desc"></p>
       <label>
-        <span class="title technologies-text">Technologies:</span>
+        <span class="title technologies-text">Keywords:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
     </div>
@@ -32,9 +36,9 @@
           <carousel
             v-if="screenshots"
             class="screenshot-container"
-            :data="screenshotsCarousel"
-            indicators="hover"
             :autoplay="false"
+            :data="screenshotsCarousel"
+            :indicators="false"
           ></carousel>
         </div>
         <div
@@ -49,9 +53,7 @@
 </template>
 
 <script>
-import TechChip from "./TechChip.vue";
 import SimpleIconButton from "ui/SimpleIconButton.vue";
-import PlayStoreBadge from "ui/PlayStoreBadge.vue";
 
 export default {
   name: "CodeProject",
@@ -64,8 +66,6 @@ export default {
     screenshots: Array
   },
   components: {
-    TechChip,
-    PlayStoreBadge,
     SimpleIconButton
   },
   methods: {
@@ -93,12 +93,13 @@ export default {
 @import "~html5-device-mockups/dist/device-mockups.css";
 
 #CodeProject {
+  overflow: hidden;
   align-self: center;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin: 8% auto;
-    width: 58vw;
+  width: 58vw;
   @include tablet-portrait-and-below {
     padding: 0px;
     width: 100vw;
@@ -115,7 +116,7 @@ export default {
   align-items: flex-start;
   justify-items: self-start;
   justify-content: flex-start;
-  margin: 75px 54px 0;
+  margin: 40px 54px 0;
   @include mobile-only {
     width: 100vw;
     margin: 0 16px;
@@ -187,5 +188,4 @@ export default {
   border-width: 2px;
   border-color: #5c5c5c;
 }
-
 </style>
