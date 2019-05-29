@@ -129,7 +129,7 @@ export default {
           `,
           quote: `
           Brilliant, organized, communicative and a wonderful programmer. 
-          One of the BEST Android programmers we have had the pleasure and privilege of working with on Upwork." 
+          One of the best Android programmers we have had the pleasure and privilege of working with on Upwork. 
           (FG Inc.)
           `,
           technologies: ["ffmpeg"],
