@@ -193,6 +193,7 @@ export default {
 
 .screenshot-container {
   height: 100%;
+  background-color: black;
   margin-right: -2px;
   border-style: solid;
   border-width: 2px;
