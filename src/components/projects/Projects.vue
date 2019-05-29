@@ -59,6 +59,22 @@ export default {
       id: "projects",
       devProjects: [
         {
+          name: "PocketWaka",
+          desc: `
+          PocketWaka is a time-tracking app for developers. 
+          It shows your coding activity and helps you track the time spent on your projects. 
+          It also shows what languages and IDEs you use the most.
+          `,
+          technologies: ["Wakatime API", "Kotlin", "RxJava 2", "Koin", "Retrofit"],
+          githubLink: "https://github.com/Kondenko/pocketwaka",
+          playStoreLink:
+            "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
+          screenshots: [
+            require("assets/projects/code/pocketwaka/1.gif"),
+            require("assets/projects/code/pocketwaka/2.png")
+          ]
+        },
+        {
           name: "ContentOffice",
           desc: `
           A content-planning app for Instagram.
@@ -103,22 +119,6 @@ export default {
             require("assets/projects/code/yandex-ok/3.png"),
             require("assets/projects/code/yandex-ok/4.png"),
             require("assets/projects/code/yandex-ok/5.png")
-          ]
-        },
-        {
-          name: "PocketWaka",
-          desc: `
-          PocketWaka is a time-tracking app for developers. 
-          It shows your coding activity and helps you track the time spent on your projects. 
-          It also shows what languages and IDEs you use the most.
-          `,
-          technologies: ["Wakatime API", "RxKotlin", "Koin", "Retrofit"],
-          githubLink: "https://github.com/Kondenko/pocketwaka",
-          playStoreLink:
-            "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
-          screenshots: [
-            require("assets/projects/code/pocketwaka/1.gif"),
-            require("assets/projects/code/pocketwaka/2.png")
           ]
         },
         {
