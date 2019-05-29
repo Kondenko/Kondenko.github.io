@@ -7,7 +7,7 @@
         :header="item.header" 
         :text="item.text"
         :emoji="item.emoji"
-        :emoji-on-right="item.emojiOnRight"
+        :emoji-on-right="i % 2 == 1"
         :showYear="i == 0 || items[i-1].year != item.year"
         >
         </exp-item>
@@ -57,7 +57,6 @@ export default {
           — I learned  to communicate with clients, meet deadlines and make sure everyone is satisfied. 
           `,
           emoji: require("assets/emoji/handshake.png"),
-          emojiOnRight: true
         },
         {
           year: 2017,
