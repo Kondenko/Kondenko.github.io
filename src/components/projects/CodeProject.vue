@@ -30,7 +30,7 @@
         <label class="quote">{{quote}}</label>
       </div>
       <label>
-        <span class="title1 technologies-text">Powered by:</span>
+        <span class="title1 technologies-text">Tech stack:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
     </div>
@@ -104,7 +104,7 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  margin: 8% auto;
+  margin: 72px auto 0;
   width: 58vw;
   @include tablet-portrait-and-below {
     padding: 0px;
@@ -154,7 +154,6 @@ export default {
   .desc-text {
     margin-top: 28px;
     max-width: 500px;
-    line-height: 35px;
   }
 
   .quote-container {
@@ -172,8 +171,9 @@ export default {
   }
 
   .technologies-text {
-    line-height: 24px;
+    line-height: 21px;
   }
+
 }
 
 .device-wrapper {

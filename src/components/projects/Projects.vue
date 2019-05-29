@@ -1,6 +1,6 @@
 <template>
-  <div :id="id">
-    <vue-tabs class='"tabs"'>
+  <div :id="id" class="projects_root">
+    <vue-tabs>
       <v-tab id="code-projects" title="Code">
         <code-project
           v-for="p in devProjects"
@@ -157,14 +157,12 @@ export default {
 <style lang="scss">
 @import "~res/tabs-theme";
 
-h1 {
-  align-self: flex-start;
+.projects_root {
+  padding-bottom: 96px !important; 
 }
 
-.tabs {
-  .title {
-    all: initial;
-  }
+h1 {
+  align-self: flex-start;
 }
 
 #p-design-projects {
