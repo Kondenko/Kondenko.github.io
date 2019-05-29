@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~res/text-styles';
+
 #app {
   max-width: 100vw;
   display: flex;
@@ -61,95 +63,6 @@ export default {
       padding: 25px 50px 25px;
     }
   }
-}
-
-h1 {
-  font-family: $font-hind-mysuru;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 125%;
-  font-size: 48px;
-  margin: 0;
-}
-
-h2 {
-  font-family: $font-hind-madurai;
-  font-style: bold;
-  font-weight: 700;
-  line-height: 50px;
-  font-size: 36px;
-  margin: 0;
-}
-
-h3 {
-  font-family: $font-hind-madurai;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 50px;
-  font-size: 24px;
-  margin: 0;
-}
-
-.title {
-  font-family: $font-hind-madurai;
-  font-style: bold;
-  font-weight: bold;
-  line-height: 50px;
-  font-size: 14px;
-  margin: 0;
-}
-
-.body {
-  font-family: $font-hind-madurai;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 35px;
-  text-align: start;
-}
-
-.body2 {
-  @extend .body;
-  font-size: 18px;
-}
-
-.body3 {
-  @extend .body2;
-  font-size: 14px;
-}
-
-.quote {
-  @extend .body;
-  font-size: 16px;
-  line-height: 22px;
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.link {
-  @extend .body;
-  font-family: $font-hind-madurai;
-  text-decoration: underline;
-  text-decoration-style: unset;
-  text-decoration-line: underline;
-  cursor: pointer;
-  color: $accentColor;
-  &:hover {
-    opacity: $hoverOpacity;
-  }
-}
-
-.caption {
-  @extend .body;
-  font-family: $font-hind-madurai;
-  color: $textPrimaryColor;
-  font-size: 14px;
-}
-
-.footer {
-  opacity: 0.7;
-  padding: 14px 0;
-  text-align: center;
-  margin: 0 auto;
 }
 
 #avatar {

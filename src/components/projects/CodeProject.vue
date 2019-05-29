@@ -30,7 +30,7 @@
         <label class="quote">{{quote}}</label>
       </div>
       <label>
-        <span class="title technologies-text">Keywords:</span>
+        <span class="title1 technologies-text">Powered by:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
     </div>

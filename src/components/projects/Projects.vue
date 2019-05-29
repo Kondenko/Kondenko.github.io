@@ -1,31 +1,31 @@
 <template>
-<div :id="id">
-    <vue-tabs>
-        <v-tab id="code-projects" title="Code">
-            <code-project 
-             v-for="p in devProjects"
-             :key="p.content"
-             :name="p.name"
-             :desc="p.desc"
-             :technologies="p.technologies"
-             :github-link="p.githubLink"
-             :play-store-link="p.playStoreLink"
-             :screenshots="p.screenshots"
-             ></code-project>
-        </v-tab>
-        <v-tab id="design-projects" title="Design">
-             <design-project 
-             v-for="p in designProjects"
-             :key="p.content"
-             :title="p.title"
-             :subtitle="p.subtitle"
-             :background="p.background"
-             :link="p.link"
-             ></design-project>
-            <modals-container/>
-        </v-tab>
+  <div :id="id">
+    <vue-tabs class='"tabs"'>
+      <v-tab id="code-projects" title="Code">
+        <code-project
+          v-for="p in devProjects"
+          :key="p.content"
+          :name="p.name"
+          :desc="p.desc"
+          :technologies="p.technologies"
+          :github-link="p.githubLink"
+          :play-store-link="p.playStoreLink"
+          :screenshots="p.screenshots"
+        ></code-project>
+      </v-tab>
+      <v-tab id="design-projects" title="Design">
+        <design-project
+          v-for="p in designProjects"
+          :key="p.content"
+          :title="p.title"
+          :subtitle="p.subtitle"
+          :background="p.background"
+          :link="p.link"
+        ></design-project>
+        <modals-container/>
+      </v-tab>
     </vue-tabs>
-</div>
+  </div>
 </template>
 
 <script>
@@ -63,7 +63,8 @@ export default {
           `,
           technologies: ["Wakatime API", "(Rx)Kotlin", "Dagger 2", "Retrofit"],
           githubLink: "https://github.com/Kondenko/pocketwaka",
-          playStoreLink: "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
+          playStoreLink:
+            "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
             "https://lh3.googleusercontent.com/0Qpo05Z3RHDu8CzieVPrTLMfyBhRs_W_m-c1OQgrfO5l3iEbpbv9gvwptFhQVOPiGKY=w1311-h644-rw",
             "https://lh3.googleusercontent.com/1iDVxxPa6Jf4112bvTjDuSRR7dFp9UbCugTyfS5UyBPT5bUxz-WzekJqkpBEEO-O9A=w1311-h644-rw"
@@ -88,7 +89,8 @@ export default {
             "MockWebServer",
             "Espresso"
           ],
-          playStoreLink: "https://play.google.com/store/apps/details?id=com.vladimirkondenko.yamblz",
+          playStoreLink:
+            "https://play.google.com/store/apps/details?id=com.vladimirkondenko.yamblz",
           githubLink: "https://github.com/Kondenko/yandex-translate-client",
           screenshots: [
             "https://lh3.googleusercontent.com/8jdhOL_PxwZa_8ZnJARvsTGiQKPtkUytGL1woWn2w6juqCnJKx8NrBmBZZN2C89FAgN8=w1311-h644-rw",
@@ -155,23 +157,14 @@ export default {
 <style lang="scss">
 @import "~res/tabs-theme";
 
-#projects {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
-
 h1 {
   align-self: flex-start;
 }
 
 .tabs {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
+  .title {
+    all: initial;
+  }
 }
 
 #p-design-projects {
