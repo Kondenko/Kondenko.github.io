@@ -59,6 +59,32 @@ export default {
       id: "projects",
       devProjects: [
         {
+          name: "ContentOffice",
+          desc: `
+          A content-planning app for Instagram.
+          <br>
+          <br> I worked on releasing a beta version of ContentOffice. 
+          I adopted best practices, made the app performant and also added a couple of new features. 
+          After a few months of work, the client said the app became much more pleasant to use. 
+          `,
+          screenshots: [
+            require("assets/projects/code/contentoffice/1.png"),
+            require("assets/projects/code/contentoffice/2.png"),
+            require("assets/projects/code/contentoffice/3.png")
+          ],
+          technologies: [
+            "Kotlin",
+            "RxJava",
+            "Instagram API",
+            "Google Play Billing",
+            "Firebase Realtime Database",
+            "Firebase Cloud Storage",
+            "Firebase Cloud Functions",
+            "Firebase Remote Config",
+            "Firebase Authentication"
+          ]
+        },
+        {
           name: "Yandex.OK",
           desc: `
           A language learning app for kids.
@@ -107,9 +133,7 @@ export default {
           (FG Inc.)
           `,
           technologies: ["ffmpeg"],
-          screenshots: [
-            require("assets/projects/code/video-collage/1.png"),
-          ]
+          screenshots: [require("assets/projects/code/video-collage/1.png")]
         },
         {
           name: "Yandex.Translate client",

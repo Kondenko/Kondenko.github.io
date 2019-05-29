@@ -97,15 +97,12 @@ export default {
   align-self: center;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-end;
+  justify-content: flex;
   margin: 72px auto 0;
   width: 58vw;
-  // border-color: rgb(0, 0, 0);
-  // border-style: solid;
-  // border-width: 2px;
   @include tablet-portrait-and-below {
     padding: 0px;
-    width: 100vw;
+    width: 96vw;
     margin: 16px auto;
     flex-wrap: wrap;
     justify-content: center;

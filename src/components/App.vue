@@ -57,7 +57,7 @@ export default {
   background: $mainBackgroundColor;
   .page {
     min-height: 100vh;
-    padding: 25px 24px 25px;
+    padding: 25px 16px 25px;
     border-bottom: 2px solid $pageDividerColor;
     @include desktop-and-up {
       padding: 25px 50px 25px;
