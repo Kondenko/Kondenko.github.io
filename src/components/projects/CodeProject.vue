@@ -31,7 +31,6 @@
       <div class="device" data-device="Pixel" data-orientation="portrait" data-color="white">
         <div class="screen" style="pointer-events: all">
           <carousel
-            v-if="screenshots"
             class="screenshot-container"
             :autoplay="false"
             :data="screenshotsCarousel"
@@ -101,6 +100,9 @@ export default {
   justify-content: flex-end;
   margin: 72px auto 0;
   width: 58vw;
+  // border-color: rgb(0, 0, 0);
+  // border-style: solid;
+  // border-width: 2px;
   @include tablet-portrait-and-below {
     padding: 0px;
     width: 100vw;

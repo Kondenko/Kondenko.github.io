@@ -7,6 +7,7 @@
           :key="p.content"
           :name="p.name"
           :desc="p.desc"
+          :quote="p.quote"
           :technologies="p.technologies"
           :github-link="p.githubLink"
           :play-store-link="p.playStoreLink"
@@ -92,6 +93,22 @@ export default {
           screenshots: [
             require("assets/projects/code/pocketwaka/1.gif"),
             require("assets/projects/code/pocketwaka/2.png")
+          ]
+        },
+        {
+          name: "VideoCollage",
+          desc: `
+          I developed an app where users can create collages from videos captured with an in-app camera or selected from the gallery. 
+          I had absolutely no experience working with videos on Android but the client was OK with that and I picked things up quickly. 
+          `,
+          quote: `
+          Brilliant, organized, communicative and a wonderful programmer. 
+          One of the BEST Android programmers we have had the pleasure and privilege of working with on Upwork." 
+          (FG Inc.)
+          `,
+          technologies: ["ffmpeg"],
+          screenshots: [
+            require("assets/projects/code/video-collage/1.png"),
           ]
         },
         {
