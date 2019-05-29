@@ -8,23 +8,16 @@
           :href="playStoreLink + '&utm_source=personal-website'"
           target="_blank"
         >
-          <simple-icon-button
-            :icon="icGooglePlay"
-            class="button-link"
-            text="Download"
-            v-on:click.native="onPlayStoreClicked"
-          ></simple-icon-button>
+          <simple-icon-button :icon="icGooglePlay" class="button-link" text="Download"></simple-icon-button>
+        </a>
+        <a v-if="videoLink" :href="videoLink" target="_blank">
+          <simple-icon-button :icon="icVideo" class="button-link" text="Watch video"></simple-icon-button>
         </a>
         <a v-if="githubLink" :href="githubLink" target="_blank">
-          <simple-icon-button
-            :icon="icGithub"
-            class="button-link"
-            text="Source code"
-            v-on:click.native="onGithubClicked"
-          ></simple-icon-button>
+          <simple-icon-button :icon="icGithub" class="button-link" text="Source code"></simple-icon-button>
         </a>
       </div>
-      <p class="desc-text body2" v-html="desc"></p>
+      <p class="desc-text body2" :style="descPadding" v-html="desc"></p>
       <div v-if="quote" class="quote-container">
         <img class="img-quote" :src="imgQuote">
         <label class="quote">{{quote}}</label>
@@ -66,24 +59,26 @@ export default {
     desc: String,
     quote: String,
     technologies: Array,
-    githubLink: String,
     playStoreLink: String,
+    videoLink: String,
+    githubLink: String,
     screenshots: Array
   },
   components: {
     SimpleIconButton
   },
-  methods: {
-    onGithubClicked() {
-      this.$ga.event("click", "projectSource", this.githubLink);
-    },
-    onPlayStoreClicked() {
-      this.$ga.event("click", "projectGooglePlay", this.playStoreLink);
+  computed: {
+    descPadding: function() {
+      return {
+        "margin-top":
+          this.githubLink || this.playStoreLink || this.videoLink ? -28 : 0
+      };
     }
   },
   data: function() {
     return {
       icGithub: require("assets/icons/ic_github_accent.svg"),
+      icVideo: require("assets/icons/ic_youtube_accent.svg"),
       icGooglePlay: require("assets/icons/ic_gplay_accent.svg"),
       imgQuote: require("assets/img_quote.svg"),
       screenshotsCarousel: this.screenshots.map(
@@ -152,7 +147,6 @@ export default {
   }
 
   .desc-text {
-    margin-top: 28px;
     max-width: 500px;
   }
 
@@ -173,7 +167,6 @@ export default {
   .technologies-text {
     line-height: 21px;
   }
-
 }
 
 .device-wrapper {

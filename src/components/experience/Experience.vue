@@ -66,14 +66,6 @@ export default {
           After having successfully completed a test task and an interview, I was invited to spend 3 months in Yandex's Moscow office. 
           The students took lessons from professional Android developers and other specialists,
           completed a personal project and a project with a team of a designer, a manager, and 4 developers. 
-          <br> 
-          <br> 
-          Our team was working on a language learning <a class="link" href="https://www.youtube.com/watch?v=mD_UBhl61ys" target="_blank">app</a> for kids.
-          My responsibility was to develop the core module of the app, and when the other developers have finished their modules,
-          to combine them into a perfectly working system. I learned to work with a designer to recreate the screens in code 
-          exactly as they intended and to collaborate with developers to create a good-structured app under our manager's supervision.
-          <br> 
-          <br> 
           We also had a hackathon where my team built an app in 8 hours and took the 1st place.
           `,
           emoji: require("assets/emoji/hat.png")

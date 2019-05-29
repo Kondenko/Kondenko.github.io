@@ -10,6 +10,7 @@
           :technologies="p.technologies"
           :github-link="p.githubLink"
           :play-store-link="p.playStoreLink"
+          :video-link="p.videoLink"
           :screenshots="p.screenshots"
         ></code-project>
       </v-tab>
@@ -33,6 +34,8 @@ import CodeProject from "./CodeProject.vue";
 import DesignProject from "./DesignProject.vue";
 import { VueTabs, VTab } from "vue-nav-tabs/dist/vue-tabs.js";
 
+const codeProjects = "assets/projects/code/";
+
 export default {
   name: "Projects",
   components: {
@@ -55,27 +58,46 @@ export default {
       id: "projects",
       devProjects: [
         {
+          name: "Yandex.OK",
+          desc: `
+          A language learning app for kids.
+          <br>
+          The app helps kids to learn new English words by playing games. 
+          Kids can take a picture of any object, the app will translate it and add it to their vocabulary.
+          Each developer on the team worked on his own module. I worked on the core of the app and was responsible for combining all the modules together. 
+          I worked closely with our designer to recreate the screens in code exactly as she intended 
+          and collaborated with developers to create a well-structured app.
+         `,
+          technologies: ["Room", "RxJava 2", "Object recognition"],
+          videoLink: "https://www.youtube.com/watch?v=mD_UBhl61ys",
+          screenshots: [
+            require("assets/projects/code/yandex-ok/1.png"),
+            require("assets/projects/code/yandex-ok/2.png"),
+            require("assets/projects/code/yandex-ok/3.png"),
+            require("assets/projects/code/yandex-ok/4.png"),
+            require("assets/projects/code/yandex-ok/5.png")
+          ]
+        },
+        {
           name: "PocketWaka",
           desc: `
-          PocketWaka is a client for <a class="link" href="http://www.wakatime.com" target="_blank">Wakatime</a>. 
+          PocketWaka is a time-tracking app for developers. 
           It shows your coding activity and helps you track the time spent on your projects. 
           It also shows what languages and IDEs you use the most.
           `,
-          technologies: ["Wakatime API", "(Rx)Kotlin", "Dagger 2", "Retrofit"],
+          technologies: ["Wakatime API", "RxKotlin", "Koin", "Retrofit"],
           githubLink: "https://github.com/Kondenko/pocketwaka",
           playStoreLink:
             "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
-            "https://lh3.googleusercontent.com/0Qpo05Z3RHDu8CzieVPrTLMfyBhRs_W_m-c1OQgrfO5l3iEbpbv9gvwptFhQVOPiGKY=w1311-h644-rw",
-            "https://lh3.googleusercontent.com/1iDVxxPa6Jf4112bvTjDuSRR7dFp9UbCugTyfS5UyBPT5bUxz-WzekJqkpBEEO-O9A=w1311-h644-rw"
+            require("assets/projects/code/pocketwaka/1.gif"),
+            require("assets/projects/code/pocketwaka/2.png")
           ]
         },
         {
           name: "Yandex.Translate client",
           desc: `
-            This is a translation app which uses Yandex.Translate API. 
-            It uses the Room database to store translations history and bookmarks.
-            I made this app as a test task for Yandex Mobile Development School in 2017.
+            A translation app I made as a test task for Yandex mobile development school. 
           `,
           technologies: [
             "Yandex.Translate API",
@@ -158,7 +180,7 @@ export default {
 @import "~res/tabs-theme";
 
 .projects_root {
-  padding-bottom: 96px !important; 
+  padding-bottom: 96px !important;
 }
 
 h1 {
