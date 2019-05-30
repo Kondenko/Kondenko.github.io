@@ -1,18 +1,37 @@
 <template>
   <div :id="id">
     <div id="text">
-    <h1 id="greeting">{{ greeting }}</h1>
-    <p class="body" id="bio">
-        I prototype, design and develop awesome mobile apps. <br> 
-      I studied at Yandex Mobile Development School and started <br> my career as a freelance Android developer after graduation. <br>
-      I also have a Telegram <a class="link" :href="channelLink" target="_blank" v-on:click="onChannelClicked">channel</a> about design and development.
-    </p>
-    <div id="buttons">
-      <icon-button id="resume-button" :icon="icDownload" text="Resume" v-on:click.native="downloadResume"></icon-button>
-      <div id="social-buttons">
-        <icon class="social-icon" v-for="{icon, link} of socialButtons" :key="link" :ic="icon" :url="link" :openInNewTab="true"></icon>
+      <h1 id="greeting">{{ greeting }}</h1>
+      <p class="body" id="bio">
+        I prototype, design and develop awesome mobile apps.
+        <br>I studied at Yandex Mobile Development School and started
+        <br>my career as a freelance Android developer after graduation.
+        <br>My Telegram channel in Russian:
+        <a
+          class="link"
+          :href="channelLink"
+          target="_blank"
+          v-on:click="onChannelClicked"
+        >Mobile: Design and Development</a>
+      </p>
+      <div id="buttons">
+        <icon-button
+          id="resume-button"
+          :icon="icDownload"
+          text="Resume"
+          v-on:click.native="downloadResume"
+        ></icon-button>
+        <div id="social-buttons">
+          <icon
+            class="social-icon"
+            v-for="{icon, link} of socialButtons"
+            :key="link"
+            :ic="icon"
+            :url="link"
+            :openInNewTab="true"
+          ></icon>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -61,6 +80,10 @@ export default {
           link: "mailto:kondenko2011@gmail.com"
         },
         {
+          icon: require("ic/ic_github.svg"),
+          link: "https://www.github.com/Kondenko"
+        },
+        {
           icon: require("ic/ic_facebook.svg"),
           link: "https://www.facebook.com/v.kondenko"
         },
@@ -71,10 +94,6 @@ export default {
         {
           icon: require("ic/ic_telegram.svg"),
           link: "https://www.t.me/kondenko"
-        },
-        {
-          icon: require("ic/ic_github.svg"),
-          link: "https://www.github.com/Kondenko"
         }
       ]
     };
