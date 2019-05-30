@@ -23,7 +23,7 @@
         ></icon-button>
         <div id="social-buttons">
           <icon
-            id="social-icon"
+            class="social-icon"
             v-for="{icon, link} of socialButtons"
             :key="link"
             :ic="icon"
@@ -157,7 +157,7 @@ h1 {
   opacity: 0.6;
 }
 
-#social-icon {
+.social-icon {
   padding: 5px;
 }
 </style>
