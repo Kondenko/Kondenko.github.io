@@ -1,17 +1,16 @@
 <template>
-    <div :id="id">
-        <exp-item 
-        v-for="(item, i) in items" 
-        :key="item.content" 
-        :year="item.year"
-        :header="item.header" 
-        :text="item.text"
-        :emoji="item.emoji"
-        :emoji-on-right="i % 2 == 1"
-        :showYear="i == 0 || items[i-1].year != item.year"
-        >
-        </exp-item>
-    </div>
+  <div :id="id">
+    <exp-item
+      v-for="(item, i) in items"
+      :key="item.content"
+      :year="item.year"
+      :header="item.header"
+      :text="item.text"
+      :emoji="item.emoji"
+      :emoji-on-right="i % 2 == 1"
+      :showYear="i == 0 || items[i-1].year != item.year"
+    ></exp-item>
+  </div>
 </template>
 
 <script>
@@ -51,12 +50,10 @@ export default {
           year: 2017,
           header: "Starting a freelance developer carreer",
           text: `
-          I'm freelancing since late 2017 when I got my first client. 
-          They needed an app where people can create collages from short videos. 
-          I completed it successfully and learned a lot about working with media, video processing and what's most important 
-          — I learned  to communicate with clients, meet deadlines and make sure everyone is satisfied. 
+          I'm freelancing since late 2017. While working on my first project
+          I learned how to communicate with clients, meet deadlines and make sure everyone is satisfied.
           `,
-          emoji: require("assets/emoji/handshake.png"),
+          emoji: require("assets/emoji/handshake.png")
         },
         {
           year: 2017,
