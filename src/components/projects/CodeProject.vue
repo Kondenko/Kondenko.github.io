@@ -189,6 +189,7 @@ export default {
 }
 
 .screenshot-container {
+  touch-action: unset!important;
   height: 100%;
   background-color: black;
   margin-right: -2px;

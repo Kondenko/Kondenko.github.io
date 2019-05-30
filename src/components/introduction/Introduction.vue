@@ -115,6 +115,10 @@ export default {
 
 h1 {
   margin-bottom: 10px;
+  @include mobile-only {
+    text-align: center;
+    font-size: 28px;
+  }
 }
 
 #bio {

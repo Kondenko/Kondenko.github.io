@@ -156,8 +156,8 @@ export default {
             "https://play.google.com/store/apps/details?id=com.vladimirkondenko.yamblz",
           githubLink: "https://github.com/Kondenko/yandex-translate-client",
           screenshots: [
-            "https://lh3.googleusercontent.com/8jdhOL_PxwZa_8ZnJARvsTGiQKPtkUytGL1woWn2w6juqCnJKx8NrBmBZZN2C89FAgN8=w1311-h644-rw",
-            "https://lh3.googleusercontent.com/UG460z_yFe0OV3gO6D0Gv-6UYICeuW4FWSEROYSETGC1_MMkzoMZ2OHl6wIWMusmVpAX=w1311-h644-rw"
+            require("assets/projects/code/yandex-test-task/1.png"),
+            require("assets/projects/code/yandex-test-task/2.png")
           ]
         }
       ],
