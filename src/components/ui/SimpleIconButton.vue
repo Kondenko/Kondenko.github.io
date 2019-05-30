@@ -34,7 +34,8 @@ export default {
 }
 
 .icon {
-  margin-bottom: -3px;
+  overflow: visible;
+  margin-bottom: -4%;
   margin-right: 8px;
 }
 </style>
