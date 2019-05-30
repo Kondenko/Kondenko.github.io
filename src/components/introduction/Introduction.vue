@@ -23,7 +23,7 @@
         ></icon-button>
         <div id="social-buttons">
           <icon
-            class="social-icon"
+            id="social-icon"
             v-for="{icon, link} of socialButtons"
             :key="link"
             :ic="icon"
@@ -115,6 +115,10 @@ export default {
 
 h1 {
   margin-bottom: 10px;
+  @include mobile-only {
+    text-align: center;
+    font-size: 28px;
+  }
 }
 
 #bio {
@@ -153,7 +157,7 @@ h1 {
   opacity: 0.6;
 }
 
-.social-icon {
+#social-icon {
   padding: 5px;
 }
 </style>
