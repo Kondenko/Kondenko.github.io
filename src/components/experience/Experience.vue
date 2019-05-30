@@ -1,17 +1,16 @@
 <template>
-    <div :id="id">
-        <exp-item 
-        v-for="(item, i) in items" 
-        :key="item.content" 
-        :year="item.year"
-        :header="item.header" 
-        :text="item.text"
-        :emoji="item.emoji"
-        :emoji-on-right="item.emojiOnRight"
-        :showYear="i == 0 || items[i-1].year != item.year"
-        >
-        </exp-item>
-    </div>
+  <div :id="id">
+    <exp-item
+      v-for="(item, i) in items"
+      :key="item.content"
+      :year="item.year"
+      :header="item.header"
+      :text="item.text"
+      :emoji="item.emoji"
+      :emoji-on-right="i % 2 == 1"
+      :showYear="i == 0 || items[i-1].year != item.year"
+    ></exp-item>
+  </div>
 </template>
 
 <script>
@@ -51,13 +50,10 @@ export default {
           year: 2017,
           header: "Starting a freelance developer carreer",
           text: `
-          I'm freelancing since late 2017 when I got my first client. 
-          They needed an app where people can create collages from short videos. 
-          I completed it successfully and learned a lot about working with media, video processing and what's most important 
-          — I learned  to communicate with clients, meet deadlines and make sure everyone is satisfied. 
+          I'm freelancing since late 2017. While working on my first project
+          I learned how to communicate with clients, meet deadlines and make sure everyone is satisfied.
           `,
-          emoji: require("assets/emoji/handshake.png"),
-          emojiOnRight: true
+          emoji: require("assets/emoji/handshake.png")
         },
         {
           year: 2017,
@@ -66,14 +62,6 @@ export default {
           After having successfully completed a test task and an interview, I was invited to spend 3 months in Yandex's Moscow office. 
           The students took lessons from professional Android developers and other specialists,
           completed a personal project and a project with a team of a designer, a manager, and 4 developers. 
-          <br> 
-          <br> 
-          Our team was working on a language learning <a class="link" href="https://www.youtube.com/watch?v=mD_UBhl61ys" target="_blank">app</a> for kids.
-          My responsibility was to develop the core module of the app, and when the other developers have finished their modules,
-          to combine them into a perfectly working system. I learned to work with a designer to recreate the screens in code 
-          exactly as they intended and to collaborate with developers to create a good-structured app under our manager's supervision.
-          <br> 
-          <br> 
           We also had a hackathon where my team built an app in 8 hours and took the 1st place.
           `,
           emoji: require("assets/emoji/hat.png")

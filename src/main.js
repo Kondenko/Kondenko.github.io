@@ -3,7 +3,9 @@ import App from './components/App.vue'
 import VModal from "vue-js-modal";
 import VueAnalytics from 'vue-analytics'
 import VueScrollTo from 'vue-scrollto'
+import VueCarousel from "@chenfengyuan/vue-carousel";
 
+Vue.use(VueCarousel);
 Vue.use(VModal, { dynamic: true });
 Vue.use(VueAnalytics, {
   id: 'UA-120562930-1',
