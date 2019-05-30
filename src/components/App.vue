@@ -24,14 +24,13 @@ export default {
   },
   data: function() {
     const itemsMap = {
-      "introduction": "About me",
-      "projects": "Projects",
-      "experience": "Experience"
+      introduction: "About me",
+      projects: "Projects",
+      experience: "Experience"
     };
     return {
       menuItems: itemsMap,
-      copyright: 
-      `
+      copyright: `
       Copyright © ${new Date().getFullYear()} Vladimir Kondenko
       <br> Made with ❤ and Vue.js
       `
@@ -46,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~res/text-styles';
+
 #app {
   max-width: 100vw;
   display: flex;
@@ -56,75 +57,12 @@ export default {
   background: $mainBackgroundColor;
   .page {
     min-height: 100vh;
-    padding: 25px 24px 25px;
+    padding: 25px 16px 25px;
     border-bottom: 2px solid $pageDividerColor;
     @include desktop-and-up {
       padding: 25px 50px 25px;
     }
   }
-}
-
-h1 {
-  font-family: $font-hind-mysuru;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 125%;
-  font-size: 48px;
-  margin: 0;
-}
-
-h2 {
-  font-family: $font-hind-madurai;
-  font-style: bold;
-  font-weight: 700;
-  line-height: 50px;
-  font-size: 36px;
-  margin: 0;
-}
-
-h3 {
-  font-family: $font-hind-madurai;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 50px;
-  font-size: 14px;
-  margin: 0;
-}
-
-.body {
-  font-family: $font-hind-madurai;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 35px;
-  text-align: start;
-}
-
-.link {
-  @extend .body;
-  font-family: $font-hind-madurai;
-  text-decoration: underline;
-  text-decoration-style: unset;
-  text-decoration-line: underline;
-  cursor: pointer;
-  color: $accentColor;
-  &:hover {
-    opacity: $hoverOpacity;
-  }
-}
-
-.caption {
-  @extend .body;
-  font-family: $font-hind-madurai;
-  color: $textPrimaryColor;
-  font-size: 14px;
-}
-
-.footer {
-  opacity: 0.7;
-  padding: 14px 0;
-  text-align: center;
-  margin: 0 auto;
 }
 
 #avatar {

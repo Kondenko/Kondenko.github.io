@@ -54,6 +54,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~res/text-styles';
+
 $sizeDesktop: 225px;
 $sizeMobile: 268px;
 #DesignProject {
@@ -120,25 +122,17 @@ $sizeMobile: 268px;
     flex-direction: column;
     align-items: center;
 
-    // h2 from App.vue
     .title {
+      @extend h2;
       $titleSize: 36px;
-      font-family: $font-hind-madurai;
-      font-style: bold;
-      font-weight: 700;
-      line-height: 50px;
       font-size: $titleSize;
       text-align: center;
       margin: auto;
       padding-top: $titleSize;
     }
 
-    // h3 from App.vue
     .subtitle {
-      font-family: $font-hind-madurai;
-      font-style: normal;
-      font-weight: bold;
-      line-height: 50px;
+      @extend h3;
       font-size: 14px;
       text-align: center;
     }

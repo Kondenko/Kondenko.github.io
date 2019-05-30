@@ -1,7 +1,6 @@
 <template>
     <button class="button" id="icon-button">
-        <img class="button-icon" :src="icon">
-        {{ text }}
+        <img class="icon" :src="icon">{{ text }}
     </button>
 </template>
 
@@ -31,20 +30,19 @@ export default {
 }
 
 $iconSize: 26px;
-.button-icon {
+.icon {
   align-self: flex-start;
   width: $iconSize;
   height: $iconSize;
   display: block;
   margin-left: auto;
-  margin-right: auto;
   margin-right: 10px;
   margin-bottom: 3%;
 }
 
 $iconSize: 16px;
-.small-button-icon {
-  @extend .button-icon;
+.small-icon {
+  @extend .icon;
   width: $iconSize;
   height: $iconSize;
   margin-right: 5px;
