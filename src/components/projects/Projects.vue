@@ -1,6 +1,6 @@
 <template>
   <div :id="id" class="projects_root">
-    <vue-tabs>
+    <vue-tabs :id="tabsId" ref="tabs">
       <v-tab id="code-projects" title="Code">
         <code-project
           v-for="p in devProjects"
@@ -37,6 +37,11 @@ import { VueTabs, VTab } from "vue-nav-tabs/dist/vue-tabs.js";
 
 const codeProjects = "assets/projects/code/";
 
+const projectRoutes = {
+  "/projects-code": 0,
+  "/projects-design": 1
+};
+
 export default {
   name: "Projects",
   components: {
@@ -57,6 +62,7 @@ export default {
   data() {
     return {
       id: "projects",
+      tabsId: "content",
       devProjects: [
         {
           name: "PocketWaka",
@@ -65,7 +71,13 @@ export default {
           It shows your coding activity and helps you track the time spent on your projects. 
           It also shows what languages and IDEs you use the most.
           `,
-          technologies: ["Wakatime API", "Kotlin", "RxJava 2", "Koin", "Retrofit"],
+          technologies: [
+            "Wakatime API",
+            "Kotlin",
+            "RxJava 2",
+            "Koin",
+            "Retrofit"
+          ],
           githubLink: "https://github.com/Kondenko/pocketwaka",
           playStoreLink:
             "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
@@ -210,6 +222,14 @@ export default {
   },
   beforeMount() {
     window.addEventListener("scroll", this.onScroll);
+  },
+  mounted() {
+    const route = projectRoutes[window.location.pathname]
+    if (route != undefined) {
+      location.href =  "#" + this.tabsId
+    }
+    const tabIndex = route || 0
+    this.$refs.tabs.navigateToTab(tabIndex)
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
