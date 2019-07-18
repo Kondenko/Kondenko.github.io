@@ -67,7 +67,9 @@ export default {
         {
           name: "PocketWaka",
           desc: `
-          PocketWaka is a time-tracking app for developers. 
+          A time-tracking app for developers.
+          <br> 
+          <br> 
           It shows your coding activity and helps you track the time spent on your projects. 
           It also shows what languages and IDEs you use the most.
           `,
@@ -91,7 +93,8 @@ export default {
           desc: `
           A content-planning app for Instagram.
           <br>
-          <br> I worked on releasing a beta version of ContentOffice. 
+          <br> 
+          I worked on releasing a beta version of ContentOffice. 
           I adopted best practices, made the app performant and also added a couple of new features. 
           After a few months of work, the client said the app became much more pleasant to use. 
           `,
@@ -117,6 +120,7 @@ export default {
           desc: `
           A language learning app for kids.
           <br>
+          <br>
           The app helps kids to learn new English words by playing games. 
           Kids can take a picture of any object, the app will translate it and add it to their vocabulary.
           Each developer on the team worked on his own module. I worked on the core of the app and was responsible for combining all the modules together. 
@@ -136,6 +140,9 @@ export default {
         {
           name: "VideoCollage",
           desc: `
+          A video collage app.
+          <br>
+          <br>
           I developed an app where users can create collages from videos captured with an in-app camera or selected from the gallery. 
           I had absolutely no experience working with videos on Android but the client was OK with that and I picked things up quickly. 
           `,
