@@ -23,7 +23,7 @@
         <label class="quote">{{quote}}</label>
       </div>
       <label>
-        <span class="title1 technologies-text">Tech stack:</span>
+        <span class="title technologies-text">Tech stack:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
     </div>
