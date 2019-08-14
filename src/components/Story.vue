@@ -1,15 +1,19 @@
 <template>
   <div id="story">
-      Story
+    <Stories :stories="[[1, 2, 3]]" />
   </div>
 </template>
 
 <script>
+import Stories from "stories/src/Stories.vue";
+
 export default {
-    name: "Story"
-}
+  name: "Story",
+  components: {
+    Stories
+  }
+};
 </script>
 
 <style>
-
 </style>
