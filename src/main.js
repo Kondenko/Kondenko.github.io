@@ -1,10 +1,12 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './components/App.vue'
 import VModal from "vue-js-modal";
 import VueAnalytics from 'vue-analytics'
 import VueScrollTo from 'vue-scrollto'
 import VueCarousel from "@chenfengyuan/vue-carousel";
 
+Vue.use(VueRouter)
 Vue.use(VueCarousel);
 Vue.use(VModal, { dynamic: true });
 Vue.use(VueAnalytics, {
