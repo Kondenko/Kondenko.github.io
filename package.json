@@ -23,7 +23,7 @@
     "vue-js-modal": "^1.3.31",
     "vue-nav-tabs": "^0.5.7",
     "vue-scrollto": "^2.15.0",
-    "stories": "git+https://git@github.com/Kondenko/vue-story-example.git"
+    "stories": "~/Web Projects/vue-story-example"
   },
   "browserslist": [
     "> 1%",
