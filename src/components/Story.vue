@@ -14,7 +14,12 @@ export default {
   },
   data: () => {
     return {
-      stories: [[1, 2, 3]]
+      stories: [
+        [
+          require("assets/projects/code/pocketwaka/1.gif"),
+          require("assets/projects/code/pocketwaka/2.png")
+        ]
+      ]
     };
   }
 };
@@ -25,12 +30,23 @@ export default {
 #container {
   margin: 0 auto;
   height: 100vh;
-  width: calc(100vh * 0.5625); // for some reason aspect ratio can't be used as a variable
+  width: calc(
+    100vh * 0.5625
+  ); // for some reason aspect ratio can't be used as a variable
 }
 
 #story {
   position: relative;
   height: 100%;
   width: 100%;
+}
+
+.timeline > .slice {
+  border-radius: 8px;
+}
+
+.timeline > .slice > .progress {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
 }
 </style>
