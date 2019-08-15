@@ -33,6 +33,9 @@ export default {
   width: calc(
     100vh * 0.5625
   ); // for some reason aspect ratio can't be used as a variable
+  @include mobile-only {
+    width: 100vw;
+  }
 }
 
 #story {
