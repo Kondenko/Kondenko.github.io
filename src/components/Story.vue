@@ -16,8 +16,13 @@ export default {
     return {
       stories: [
         [
-          require("assets/projects/code/pocketwaka/1.gif"),
-          require("assets/projects/code/pocketwaka/2.png")
+          require("assets/story/1.gif"),
+          require("assets/story/2.gif"),
+          require("assets/story/3.gif"),
+          require("assets/story/4.gif"),
+          require("assets/story/5.gif"),
+          require("assets/story/6.gif"),
+          require("assets/story/7.gif"),
         ]
       ]
     };
@@ -26,7 +31,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 #container {
   margin: 0 auto;
   height: 100vh;
@@ -34,6 +38,7 @@ export default {
     100vh * 0.5625
   ); // for some reason aspect ratio can't be used as a variable
   @include mobile-only {
+    height: 100%;
     width: 100vw;
   }
 }
