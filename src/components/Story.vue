@@ -1,8 +1,8 @@
 <template>
   <div id="container" oncontextmenu="return false;">
     <Stories v-if="!requireFullscreen" id="story" :stories="stories" :slideDuration="4000" />
-    <div class="content">
-      <img :src="avatar" @click="showStory" v-if="requireFullscreen" id="image_story" />
+    <div class="content" v-if="requireFullscreen" @click="showStory">
+      <img :src="avatar" id="image_story" />
       <p class="title1">Watch my story</p>
     </div>
   </div>
@@ -25,21 +25,21 @@ export default {
       avatar: require("assets/img_avatar.png"),
       stories: [
         [
-          require("assets/story/1.gif"),
-          require("assets/story/2.gif"),
-          require("assets/story/3.gif"),
-          require("assets/story/4.gif"),
-          require("assets/story/5.gif"),
-          require("assets/story/6.gif"),
-          require("assets/story/7.gif")
+          require("assets/story/1.jpg"),
+          require("assets/story/2.jpg"),
+          require("assets/story/3.jpg"),
+          require("assets/story/4.jpg"),
+          require("assets/story/5.jpg"),
+          require("assets/story/6.jpg"),
+          require("assets/story/7.jpg")
         ]
       ]
     };
   },
   methods: {
     showStory: function() {
-      utils.toggleFullscreen();
       this.requireFullscreen = false;
+      utils.toggleFullscreen();
     }
   }
 };
@@ -99,6 +99,6 @@ $size: 72px;
 
 .timeline > .slice > .progress {
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.5);
+  background: white;
 }
 </style>
