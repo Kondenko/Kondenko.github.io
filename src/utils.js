@@ -20,5 +20,8 @@ module.exports = {
         } else {
             cancelFullScreen.call(doc);
         }
+    },
+    isMobileDevice: () => {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
     }
 }

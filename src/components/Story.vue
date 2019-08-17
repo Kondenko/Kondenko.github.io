@@ -1,7 +1,7 @@
 <template>
   <div id="container">
-    <Stories v-if="isFullscreen" id="story" :stories="stories" :slideDuration="4000" />
-    <img :src="avatar" @click="showStory" v-if="!isFullscreen" id="image_story" />
+    <Stories v-if="!requireFullscreen" id="story" :stories="stories" :slideDuration="4000" />
+    <img :src="avatar" @click="showStory" v-if="requireFullscreen" id="image_story" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   },
   data: () => {
     return {
-      isFullscreen: false,
+      requireFullscreen: utils.isMobileDevice(),
       avatar: require("assets/img_avatar.png"),
       stories: [
         [
@@ -33,11 +33,10 @@ export default {
       ]
     };
   },
-  mounted: function() {},
   methods: {
     showStory: function() {
       utils.toggleFullscreen();
-      this.isFullscreen = true;
+      this.requireFullscreen = false;
     }
   }
 };
