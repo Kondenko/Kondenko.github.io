@@ -1,7 +1,10 @@
 <template>
-  <div id="container">
+  <div id="container" oncontextmenu="return false;">
     <Stories v-if="!requireFullscreen" id="story" :stories="stories" :slideDuration="4000" />
-    <img :src="avatar" @click="showStory" v-if="requireFullscreen" id="image_story" />
+    <div class="content">
+      <img :src="avatar" @click="showStory" v-if="requireFullscreen" id="image_story" />
+      <p class="title1">Watch my story</p>
+    </div>
   </div>
 </template>
 
@@ -44,6 +47,7 @@ export default {
 
 <style lang="scss">
 @import "~res/colors";
+@import "~res/text-styles";
 
 #container {
   margin: 0 auto;
@@ -65,16 +69,21 @@ export default {
   left: 0;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 $size: 72px;
 #image_story {
   /* Position */
   width: $size;
   height: $size;
-  position: absolute;
-  left: 50%;
-  margin-left: -($size / 2);
-  top: 50%;
-  margin-top: -($size / 2);
   border-radius: 3px;
   /* Border */
   border-style: solid;
