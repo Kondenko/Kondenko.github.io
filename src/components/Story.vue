@@ -1,6 +1,6 @@
 <template>
   <div id="container" oncontextmenu="return false;">
-    <Stories v-if="!requireFullscreen" id="story" :stories="stories" :slideDuration="4000" />
+    <Stories v-if="!requireFullscreen" id="story" :stories="stories" :slideDuration="duration" />
     <div class="content" v-if="requireFullscreen" @click="showStory">
       <img :src="avatar" id="image_story" />
       <p class="title1">Watch my story</p>
@@ -23,6 +23,7 @@ export default {
     return {
       requireFullscreen: utils.isMobileDevice(),
       avatar: require("assets/img_avatar.png"),
+      duration: 5000,
       stories: [
         [
           require("assets/story/1.jpg"),
@@ -58,7 +59,7 @@ export default {
   ); // for some reason aspect ratio can't be used as a variable
   @include mobile-only {
     height: 100%;
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -67,6 +68,9 @@ export default {
   width: 100%;
   position: absolute;
   left: 0;
+  .content {
+    object-fit: cover;
+  }
 }
 
 .content {
