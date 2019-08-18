@@ -3,6 +3,8 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+var StaticSiteGenerator = require('webpack-static-site-generator')
+
 var isProd = process.env.NODE_ENV === 'production'
 
 var title = "Vladimir Kondenko / Designer + Developer"
@@ -121,6 +123,12 @@ module.exports = {
       template: htmlTemplate,
       filename: './index.html' //relative to root of the application
     }),
+    new StaticSiteGenerator(
+      // path to the output dir
+      path.join(__dirname, './dist'),
+      // array of routes to generate
+      ["/", "/story"]
+    ),
     new VueLoaderPlugin()
   ],
   devtool: '#eval-source-map',
