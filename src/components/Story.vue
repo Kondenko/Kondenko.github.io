@@ -69,7 +69,7 @@ export default {
   position: absolute;
   left: 0;
   .content {
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
