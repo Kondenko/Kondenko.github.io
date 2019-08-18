@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --disableHostCheck --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "npm run build; push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
+    "deploy": "npm run build && touch ./dist/.nojekyll && push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
   },
   "dependencies": {
     "@chenfengyuan/vue-carousel": "^1.0.2",
