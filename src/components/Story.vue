@@ -37,6 +37,13 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$ga.page({
+      page: "/story",
+      title: "Story",
+      location: window.location.href
+    });
+  },
   methods: {
     showStory: function() {
       this.requireFullscreen = false;
