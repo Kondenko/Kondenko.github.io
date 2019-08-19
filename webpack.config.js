@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 
 var isProd = process.env.NODE_ENV === 'production'
 
@@ -116,12 +117,17 @@ module.exports = {
     hints: false
   },
   plugins: [
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       title: title,
       template: htmlTemplate,
       filename: './index.html' //relative to root of the application
     }),
-    new VueLoaderPlugin()
+    new CopyPlugin(
+      ["404.html", ".nojekyll"].map(file => {
+        return { from: `./${file}`, to: file, toType: 'file' }
+      })
+    )
   ],
   devtool: '#eval-source-map',
 }
