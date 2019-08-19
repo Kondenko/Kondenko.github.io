@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --disableHostCheck --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "npm run build && touch ./dist/.nojekyll && push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
+    "deploy": "npm run build && push-dir --dir=dist --branch=master --overwrite-local --verbose --cleanup"
   },
   "dependencies": {
     "@chenfengyuan/vue-carousel": "^1.0.2",
@@ -38,6 +38,7 @@
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.4",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
