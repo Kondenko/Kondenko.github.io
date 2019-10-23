@@ -1,6 +1,7 @@
 <template>
   <button class="button" id="simple-icon-button">
-    <img class="icon" :src="icon">{{text}}
+    <img class="icon" :src="icon" />
+    {{text}}
   </button>
 </template>
 
@@ -22,12 +23,12 @@ export default {
 .button {
   background: none;
   min-width: none;
-  align-content: center;
   box-shadow: none;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   color: $accentColor;
+  margin: auto;
   &:hover {
     text-decoration: underline;
   }

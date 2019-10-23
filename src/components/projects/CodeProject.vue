@@ -1,6 +1,7 @@
 <template>
   <div id="CodeProject">
-    <div class="desc-block">
+    <div class="desc-block" :style="descBlockMargin">
+
       <h3 class="header">{{ name }}</h3>
       <div class="buttons-block">
         <a
@@ -8,7 +9,7 @@
           :href="playStoreLink + '&utm_source=personal-website'"
           target="_blank"
         >
-          <simple-icon-button :icon="icGooglePlay" class="button-link" text="Download"></simple-icon-button>
+          <simple-icon-button :icon="icDownload" class="button-link" text="Download"></simple-icon-button>
         </a>
         <a v-if="videoLink" :href="videoLink" target="_blank">
           <simple-icon-button :icon="icVideo" class="button-link" text="Watch video"></simple-icon-button>
@@ -17,17 +18,21 @@
           <simple-icon-button :icon="icGithub" class="button-link" text="Source code"></simple-icon-button>
         </a>
       </div>
-      <p class="desc-text body2" :style="descPadding" v-html="desc"></p>
+
+      <p class="desc-text body2" :style="descTextMargin" v-html="desc"></p>
       <div v-if="quote" class="quote-container">
         <img class="img-quote" :src="imgQuote">
         <label class="quote">{{quote}}</label>
       </div>
+
       <label>
         <span class="title1 technologies-text">Tech stack:</span>
         <span class="body3 technologies-text">{{technologies.join(", ")}}</span>
       </label>
+      
     </div>
-    <div class="device-wrapper screenshots-block">
+
+    <div v-show="screenshots" class="device-wrapper screenshots-block">
       <div class="device" data-device="Pixel" data-orientation="portrait" data-color="white">
         <div class="screen" style="pointer-events: all">
           <carousel
@@ -45,6 +50,7 @@
         ></div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -57,6 +63,7 @@ export default {
     name: String,
     desc: String,
     quote: String,
+    downloadIcon: String,
     technologies: Array,
     playStoreLink: String,
     videoLink: String,
@@ -67,10 +74,16 @@ export default {
     SimpleIconButton
   },
   computed: {
-    descPadding: function() {
+    descBlockMargin: function() {
       return {
-        "margin-top":
-          this.githubLink || this.playStoreLink || this.videoLink ? -28 : 0
+        "margin-top": this.githubLink || this.playStoreLink || this.videoLink ? 18 : 0,
+      };
+    },
+    descBlockMargin: function() {
+      const horizontalMargin = this.screenshots ? "54px" : "0"
+      return {
+        "margin-left": horizontalMargin,
+        "margin-right": horizontalMargin
       };
     }
   },
@@ -78,11 +91,11 @@ export default {
     return {
       icGithub: require("assets/icons/ic_github_accent.svg"),
       icVideo: require("assets/icons/ic_youtube_accent.svg"),
-      icGooglePlay: require("assets/icons/ic_gplay_accent.svg"),
+      icDownload: this.downloadIcon ? this.downloadIcon : require("assets/icons/ic_gplay_accent.svg"),
       imgQuote: require("assets/img_quote.svg"),
-      screenshotsCarousel: this.screenshots.map(
+      screenshotsCarousel: this.screenshots ? this.screenshots.map(
         s => `<img style="width: 100%" src="${s}">`
-      )
+      ) : undefined
     };
   }
 };
@@ -97,7 +110,7 @@ export default {
   align-self: center;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex;
+  justify-content: flex-end;
   margin: 72px auto 0;
   width: 58vw;
   @include tablet-portrait-and-below {
@@ -116,7 +129,6 @@ export default {
   align-items: flex-start;
   justify-items: self-start;
   justify-content: flex-start;
-  margin: 40px 54px 0;
   @include mobile-only {
     width: 100vw;
     margin: 0 16px;

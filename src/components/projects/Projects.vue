@@ -13,6 +13,7 @@
           :play-store-link="p.playStoreLink"
           :video-link="p.videoLink"
           :screenshots="p.screenshots"
+          :download-icon="p.downloadIcon"
         ></code-project>
       </v-tab>
       <v-tab id="design-projects" title="Design">
@@ -24,7 +25,7 @@
           :background="p.background"
           :link="p.link"
         ></design-project>
-        <modals-container/>
+        <modals-container />
       </v-tab>
     </vue-tabs>
   </div>
@@ -70,12 +71,18 @@ export default {
           A time-tracking app for developers.
           <br> 
           <br> 
-          It shows your coding activity and helps you track the time spent on your projects. 
-          It also shows what languages and IDEs you use the most.
+          Instead of tracking time manually, developers can see
+          exactly how much time they spend on their projects every day.
+          The app also shows their rating of projects, 
+          languages, code editors and operating systems.
+          <br>
+          I designed and developed this app by myself, trying to adhere 
+          to best practices and to learn new things as I work.
           `,
           technologies: [
             "Wakatime API",
             "Kotlin",
+            "Architecture Components",
             "RxJava 2",
             "Koin",
             "Retrofit"
@@ -124,6 +131,7 @@ export default {
           <br>
           The app helps kids to learn new English words by playing games. 
           Kids can take a picture of any object, the app will translate it and add it to their vocabulary.
+          <br>
           Each developer on the team worked on his own module. I worked on the core of the app and was responsible for combining all the modules together. 
           I worked closely with our designer to recreate the screens in code exactly as she intended 
           and collaborated with developers to create a well-structured app.
@@ -179,6 +187,15 @@ export default {
             require("assets/projects/code/yandex-test-task/1.png"),
             require("assets/projects/code/yandex-test-task/2.png")
           ]
+        },
+        {
+          name: "Safely Delete Components",
+          desc: `A Figma plugin to prevent your from deleting used components and to keep your project tidy`,
+          technologies: ["Figma Plugin API", "Typescript"],
+          playStoreLink:
+            "https://www.figma.com/c/plugin/746849770992339499/Safely-Delete-Components",
+          githubLink: "https://github.com/Kondenko/SafelyDeleteComponents",
+          downloadIcon: require("assets/icons/ic_figma.svg")
         }
       ],
       designProjects: [
@@ -232,12 +249,12 @@ export default {
     window.addEventListener("scroll", this.onScroll);
   },
   mounted() {
-    const route = projectRoutes[window.location.pathname]
+    const route = projectRoutes[window.location.pathname];
     if (route != undefined) {
-      location.href =  "#" + this.tabsId
+      location.href = "#" + this.tabsId;
     }
-    const tabIndex = route || 0
-    this.$refs.tabs.navigateToTab(tabIndex)
+    const tabIndex = route || 0;
+    this.$refs.tabs.navigateToTab(tabIndex);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
