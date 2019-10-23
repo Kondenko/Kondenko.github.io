@@ -85,7 +85,8 @@ export default {
             "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
             require("assets/projects/code/pocketwaka/1.gif"),
-            require("assets/projects/code/pocketwaka/2.png")
+            require("assets/projects/code/pocketwaka/2.png"),
+            require("assets/projects/code/pocketwaka/3.png")
           ]
         },
         {
