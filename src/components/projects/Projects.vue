@@ -66,6 +66,57 @@ export default {
       tabsId: "content",
       devProjects: [
         {
+          name: "Подслушано (Overhear)",
+          desc: `
+          Overhear is an app where people anonymously share their innermost secrets.
+          <br>
+          <br>
+          I joined the project to help released its redesigned version. It was full of 
+          crashes, logic flaws and Ui-related issues. I reproduced, investigated and fixed
+          over 200 bugs and published the new version of the app into the Play Store.
+          <br>
+          The codebase was quite complicated and intertwined. Working with it taught me 
+          to be extremely careful with introducing changes. 
+          `,
+          playStoreLink: "https://play.google.com/store/apps/details?id=ru.ideer.android",
+          technologies: [
+            "Kotlin",
+            "Jetpack Navigation",
+          ],
+          screenshots: [
+            require("assets/projects/code/overhear/1.png"),
+            require("assets/projects/code/overhear/2.png"),
+            require("assets/projects/code/overhear/3.png"),
+            require("assets/projects/code/overhear/4.png"),
+          ]
+        },
+        {
+          name: "Fantasy Invest",
+          desc: `
+          A fantasy sports trading simulator. 
+          <br>
+          <br>
+          My responsibility was to estimate the amount of time needed to finish the app, 
+          to distribute tasks between myself and my fellow developer and to execute my part of the job.
+          The most challenging part was impelementing complex designs including graphs, custom views and advanced animations.
+          <br>
+          In addition to that, I implemented social authorization, added Amplitude Analytics, and fixed annoying bugs.
+          `,
+          playStoreLink: "https://play.google.com/store/apps/details?id=ru.fantasyinvestinc.fantasyinvest",
+          technologies: [
+            "Kotlin",
+            "Coroutines",
+            "Toothpick",
+            "Moxy",
+            "Motion Layout"
+          ],
+          screenshots: [
+            require("assets/projects/code/fantasy-invest/1.gif"),
+            require("assets/projects/code/fantasy-invest/2.png"),
+            require("assets/projects/code/fantasy-invest/3.png"),
+          ]
+        },
+        {
           name: "PocketWaka",
           desc: `
           A time-tracking app for developers.
@@ -88,8 +139,7 @@ export default {
             "Retrofit"
           ],
           githubLink: "https://github.com/Kondenko/pocketwaka",
-          playStoreLink:
-            "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
+          playStoreLink: "https://play.google.com/store/apps/details?id=com.kondenko.pocketwaka",
           screenshots: [
             require("assets/projects/code/pocketwaka/1.gif"),
             require("assets/projects/code/pocketwaka/2.png"),
@@ -190,7 +240,7 @@ export default {
         },
         {
           name: "Safely Delete Components",
-          desc: `A Figma plugin to prevent your from deleting used components and to keep your project tidy`,
+          desc: `A Figma plugin to prevent your from deleting used components and to keep your project tidy.`,
           technologies: ["Figma Plugin API", "Typescript"],
           playStoreLink:
             "https://www.figma.com/c/plugin/746849770992339499/Safely-Delete-Components",
