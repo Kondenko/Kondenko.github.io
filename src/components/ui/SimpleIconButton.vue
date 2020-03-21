@@ -37,6 +37,6 @@ export default {
 .icon {
   overflow: visible;
   margin-bottom: -4%;
-  margin-right: 8px;
+  margin-right: 4px;
 }
 </style>

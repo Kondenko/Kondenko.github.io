@@ -145,7 +145,7 @@ export default {
   .button-link {
     max-height: 16px;
     padding: 0px;
-    padding-right: 18px;
+    padding-right: 16px;
   }
 
   .buttons-block {
