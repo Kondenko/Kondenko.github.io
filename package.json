@@ -15,7 +15,7 @@
     "@chenfengyuan/vue-carousel": "^1.0.3",
     "flickity": "^2.2.1",
     "flickity-imagesloaded": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "html5-device-mockups": "^3.2.1",
     "stories": "https://github.com/Kondenko/vue-story-example",
     "vue": "^2.6.11",
@@ -50,7 +50,7 @@
     "vue-loader": "^15.9.1",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.3"
   }
 }
